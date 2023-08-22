@@ -32,18 +32,20 @@ namespace ApiLoja.Models
         public string Observacoes { get; set; }
         public string ContatoEmergencia { get; set; }
         public string FoneEmergencia { get; set; }
+        public bool isCandidato { get; set; }
         public bool isAprendiz { get; set; }
         public bool isCompanheiro { get; set; }
         public bool isMestre { get; set; }
         public bool isAdmin { get; set; }
         public string Pass { get; set; }
         public DateTime? DataAfiliacao { get; set; }
-        
+        public string Cargo { get; set; }
         public int StatusId { get; set; }
         public int LojaId { get; set; }
         public virtual StatusModels Status { get; set; }
         public virtual LojaModels Loja { get; set; }
         public virtual ICollection<FamiliaresModels> Familiares { get; set; }
         public virtual ICollection<DocumentosModels> Documentos { get; set; }
+        public virtual ICollection<CobrancasModels> Cobrancas { get; set;}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ApiLoja.Models;
+using ApiLoja.Params;
 
 namespace ApiLoja.Repositories.IRepositories
 {
@@ -7,5 +8,6 @@ namespace ApiLoja.Repositories.IRepositories
         UsuarioModels CadastrarUsuario(UsuarioModels usuario);
         UsuarioModels VerUsuario(int id);
         IEnumerable<UsuarioModels> ListarUsuarios();
+        UsuarioModels Login(LoginParams param);
     }
 }

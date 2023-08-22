@@ -1,5 +1,6 @@
 ﻿using ApiLoja.Data;
 using ApiLoja.Models;
+using ApiLoja.Params;
 using ApiLoja.Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -36,6 +37,7 @@ namespace ApiLoja.Repositories
             var usuario = _dataContext.Usuario
                 .Include(x=>x.Loja)
                 .Include(x=>x.Status)
+                .Include(x=>x.Cobrancas)
                 .FirstOrDefault(x => x.Id == id);
             if(usuario == null)
             {
@@ -47,6 +49,7 @@ namespace ApiLoja.Repositories
         {
             var usuario = _dataContext.Usuario
                 .Include(x=>x.Loja)
+                .Include(x=>x.Status)
                 .ToList();
             if(usuario == null)
             {
@@ -55,6 +58,19 @@ namespace ApiLoja.Repositories
             }
             else
             {
+                return usuario;
+            }
+        }
+        public UsuarioModels Login(LoginParams param)
+        {
+            if(param == null){
+                return null;
+            }
+            else
+            {
+                var senha = GerarHashMd5(param.Pass);
+                param.Pass = senha;
+                var usuario = _dataContext.Usuario.Where(x=>x.StatusId == 1 && x.CPF == param.CPF && x.Pass == param.Pass).FirstOrDefault();
                 return usuario;
             }
         }

@@ -12,6 +12,7 @@ namespace ApiLoja.Models
         public DateTime DataFundacao    { get; set; }
         public string Endereco { get; set; }
         public string Estado { get; set; }
+        public string Oriente { get; set; }
         public string Rito { get; set; }
         public bool Ativa { get; set; }
     }

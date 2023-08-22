@@ -19,6 +19,65 @@ namespace ApiLoja.Migrations
                 .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("ApiLoja.Models.CategoriasCobrancasModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CategoriaNome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CategoriasCobrancasModels");
+                });
+
+            modelBuilder.Entity("ApiLoja.Models.CobrancasModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoriaCobrancaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoriasCobrancasId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DataPagamento")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Pago")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Ref")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("UsuarioModelsId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("double");
+
+                    b.Property<DateTime>("Vencimento")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriasCobrancasId");
+
+                    b.HasIndex("UsuarioModelsId");
+
+                    b.ToTable("CobrancasModels");
+                });
+
             modelBuilder.Entity("ApiLoja.Models.DocumentosModels", b =>
                 {
                     b.Property<int>("Id")
@@ -125,6 +184,10 @@ namespace ApiLoja.Migrations
                     b.Property<int>("NumeroLoja")
                         .HasColumnType("int");
 
+                    b.Property<string>("Oriente")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Rito")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -170,6 +233,10 @@ namespace ApiLoja.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Cargo")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -274,6 +341,9 @@ namespace ApiLoja.Migrations
                     b.Property<bool>("isAprendiz")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<bool>("isCandidato")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<bool>("isCompanheiro")
                         .HasColumnType("tinyint(1)");
 
@@ -287,6 +357,21 @@ namespace ApiLoja.Migrations
                     b.HasIndex("StatusId");
 
                     b.ToTable("Usuario");
+                });
+
+            modelBuilder.Entity("ApiLoja.Models.CobrancasModels", b =>
+                {
+                    b.HasOne("ApiLoja.Models.CategoriasCobrancasModels", "CategoriasCobrancas")
+                        .WithMany()
+                        .HasForeignKey("CategoriasCobrancasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ApiLoja.Models.UsuarioModels", null)
+                        .WithMany("Cobrancas")
+                        .HasForeignKey("UsuarioModelsId");
+
+                    b.Navigation("CategoriasCobrancas");
                 });
 
             modelBuilder.Entity("ApiLoja.Models.DocumentosModels", b =>
@@ -324,6 +409,8 @@ namespace ApiLoja.Migrations
 
             modelBuilder.Entity("ApiLoja.Models.UsuarioModels", b =>
                 {
+                    b.Navigation("Cobrancas");
+
                     b.Navigation("Documentos");
 
                     b.Navigation("Familiares");

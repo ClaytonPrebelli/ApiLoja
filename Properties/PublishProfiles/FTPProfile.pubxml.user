@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Esse arquivo é usado pelo processo de publicação/pacote do seu projeto Web. É possível personalizar o comportamento deste processo
+ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/kWdwwrPT0Cc1ON3D666lQAAAAACAAAAAAAQZgAAAAEAACAAAAAcK3jJrfmgwdgltHqL3DBpZCuOh6oEYjir7izoWYoyRwAAAAAOgAAAAAIAACAAAADWpMYSCa3JX68+3yxh2a/9g0EiUHR3lfDKuw49bcxvgiAAAAAD1VSMvC/AXpxUHMyzUDrgsaARiiAvc6JMl2udrfsWn0AAAAAKAFs6UUL9/kn3RoMW+Zb4sLIGrBbPC7baPRpVQ718QuiAfC/jN73/Iw/tnj2fAIUkCfDg6GRIMXY2CrCo/T6d</EncryptedPassword>
+    <_PublishTargetUrl>ftp://ftp.prebellisolucoes.com/www/apiloja</_PublishTargetUrl>
+    <History>True|2023-08-22T22:17:18.3236524Z;False|2023-08-22T19:16:48.6369738-03:00;True|2023-08-22T19:16:10.5345952-03:00;False|2023-08-22T19:14:41.9311110-03:00;False|2023-08-22T19:11:59.1726731-03:00;True|2023-08-22T19:08:44.1924733-03:00;True|2023-08-22T19:07:47.2901840-03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApiLoja.deps.json">
+      <publishTime>08/22/2023 19:17:07</publishTime>
+    </File>
+    <File Include="ApiLoja.dll">
+      <publishTime>08/22/2023 19:17:05</publishTime>
+    </File>
+    <File Include="ApiLoja.exe">
+      <publishTime>08/22/2023 19:17:05</publishTime>
+    </File>
+    <File Include="ApiLoja.pdb">
+      <publishTime>08/22/2023 19:17:05</publishTime>
+    </File>
+    <File Include="ApiLoja.runtimeconfig.json">
+      <publishTime>08/22/2023 19:17:06</publishTime>
+    </File>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/10/2023 11:55:42</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/10/2023 11:55:42</publishTime>
+    </File>
+    <File Include="EntityFramework.dll">
+      <publishTime>09/11/2013 06:10:04</publishTime>
+    </File>
+    <File Include="EntityFramework.SqlServer.dll">
+      <publishTime>09/11/2013 06:10:04</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>10/23/2021 15:35:34</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>10/23/2021 15:35:52</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>10/23/2021 15:37:10</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>08/29/2020 17:14:12</publishTime>
+    </File>
+    <File Include="MySqlConnector.dll">
+      <publishTime>11/09/2021 13:05:54</publishTime>
+    </File>
+    <File Include="Pomelo.EntityFrameworkCore.MySql.dll">
+      <publishTime>11/09/2021 19:16:32</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>10/16/2021 09:54:10</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>10/16/2021 09:54:36</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>10/16/2021 09:54:30</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>08/22/2023 19:17:07</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
