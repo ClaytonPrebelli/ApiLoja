@@ -13,12 +13,8 @@ namespace ApiLoja.Repositories
             _dataContext = dataContext;
         }
 
-        public IEnumerable<FotosModels> ListarFotosPorId(int id)
-        {
-            var fotos = _dataContext.Fotos.Where(x => x.UsuarioId == id).ToList();
-            return fotos;
-        }
-        public string CadastrarFotos(FotosModels foto)
+       
+        public string CadastrarFotosUser(FotosModels foto)
         {
             try
             {
@@ -29,6 +25,37 @@ namespace ApiLoja.Repositories
             {
                 return ex.Message;
             }
+        }
+        public string CadastrarFotosLojas(FotosLojasModels foto)
+        {
+            try
+            {
+                _dataContext.FotosLojas.Add(foto);
+                _dataContext.SaveChanges();
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string CadastrarFotosNoticias(FotosNoticiaModels foto)
+        {
+            try
+            {
+                _dataContext.FotosNoticias.Add(foto);
+                _dataContext.SaveChanges();
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public ICollection<FotosNoticiaModels> VerFotoNoticia(int id)
+        {
+            var noticia = _dataContext.FotosNoticias.Where(x=>x.NoticiasId == id).ToList();
+            return noticia;
         }
 
     }

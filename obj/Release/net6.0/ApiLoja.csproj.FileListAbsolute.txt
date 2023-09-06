@@ -19,7 +19,6 @@ C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Release\net6.0\Pomelo.
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Release\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Release\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.csproj.AssemblyReference.cache
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.AssemblyInfoInputs.cache
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.AssemblyInfo.cs
@@ -34,3 +33,4 @@ C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ref\ApiLoja.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.pdb
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.genruntimeconfig.cache
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.csproj.AssemblyReference.cache

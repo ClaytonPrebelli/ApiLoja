@@ -9,5 +9,6 @@ namespace ApiLoja.Repositories.IRepositories
         UsuarioModels VerUsuario(int id);
         IEnumerable<UsuarioModels> ListarUsuarios();
         UsuarioModels Login(LoginParams param);
+        UsuarioModels VerficaAtivo(int id);
     }
 }

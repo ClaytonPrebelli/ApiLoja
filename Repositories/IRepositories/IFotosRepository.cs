@@ -4,7 +4,10 @@ namespace ApiLoja.Repositories.IRepositories
 {
     public interface IFotosRepository
     {
-        IEnumerable<FotosModels> ListarFotosPorId(int id);
-        string CadastrarFotos(FotosModels foto);
+      
+        string CadastrarFotosUser(FotosModels foto);
+        string CadastrarFotosLojas(FotosLojasModels foto);
+        ICollection<FotosNoticiaModels> VerFotoNoticia(int id);
+        string CadastrarFotosNoticias(FotosNoticiaModels foto);
     }
 }

@@ -50,6 +50,7 @@ namespace ApiLoja.Repositories
             var usuario = _dataContext.Usuario
                 .Include(x=>x.Loja)
                 .Include(x=>x.Status)
+                .Include(x=>x.Foto)
                 .ToList();
             if(usuario == null)
             {
@@ -68,11 +69,27 @@ namespace ApiLoja.Repositories
             }
             else
             {
+                param.CPF = param.CPF.Replace(".", "").Replace("-", "");
                 var senha = GerarHashMd5(param.Pass);
                 param.Pass = senha;
-                var usuario = _dataContext.Usuario.Where(x=>x.StatusId == 1 && x.CPF == param.CPF && x.Pass == param.Pass).FirstOrDefault();
+                var usuario = _dataContext.Usuario.Where(x=>x.StatusId == 1 && x.CPF == param.CPF && x.Pass == param.Pass)
+                     .Include(x => x.Loja)
+                .Include(x => x.Status)
+                .Include(x => x.Foto)
+                    .FirstOrDefault();
                 return usuario;
             }
+        }
+
+        public UsuarioModels VerficaAtivo(int id)
+        {
+            var usuario = _dataContext.Usuario.Where(x=>x.Id==id && x.StatusId==1)
+                .Include(x=>x.Loja)
+                .Include(x=>x.Status)
+                .Include(x=>x.Foto)
+                .FirstOrDefault();
+            return usuario;
+
         }
         public static string GerarHashMd5(string input)
         {

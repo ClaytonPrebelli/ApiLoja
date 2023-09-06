@@ -15,5 +15,7 @@ namespace ApiLoja.Models
         public string Oriente { get; set; }
         public string Rito { get; set; }
         public bool Ativa { get; set; }
+        public virtual ICollection<DocumentosModels> Documentos { get; set; }
+        public virtual FotosLojasModels? Fotos { get; set; }
     }
 }

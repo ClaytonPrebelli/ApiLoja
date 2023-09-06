@@ -22,6 +22,8 @@ builder.Services.AddDbContext<DataContext>(opt => opt.UseMySql(stringConexao, Se
 builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<IFotosRepository, FotosRepository>();
+builder.Services.AddScoped<INoticiasRepository, NoticiasRepositoy>();
+builder.Services.AddScoped<ILojasRepository,LojasRepository>();
 //repository
 var app = builder.Build();
 

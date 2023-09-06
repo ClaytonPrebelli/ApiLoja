@@ -37,11 +37,16 @@ namespace ApiLoja.Models
         public bool isCompanheiro { get; set; }
         public bool isMestre { get; set; }
         public bool isAdmin { get; set; }
+        public bool isSuperAdmin { get; set; } = false;
         public string Pass { get; set; }
         public DateTime? DataAfiliacao { get; set; }
-        public string Cargo { get; set; }
+        public string FormaAfiliacao { get; set; }
+        public string? Cargo { get; set; }
+        public string? Titulo { get; set; }
         public int StatusId { get; set; }
         public int LojaId { get; set; }
+        public int? FotoId { get; set; }
+        public virtual FotosModels Foto { get; set; }
         public virtual StatusModels Status { get; set; }
         public virtual LojaModels Loja { get; set; }
         public virtual ICollection<FamiliaresModels> Familiares { get; set; }

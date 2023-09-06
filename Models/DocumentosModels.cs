@@ -10,6 +10,8 @@ namespace ApiLoja.Models
         public string DocName { get; set; }
         [Required]
         public byte[] DocFile { get; set; }
-        public int UsuarioId { get; set; }
+        public int? UsuarioId { get; set; }
+        public int? LojaId { get; set; }
+        public int? GrauId { get; set; }
     }
 }
