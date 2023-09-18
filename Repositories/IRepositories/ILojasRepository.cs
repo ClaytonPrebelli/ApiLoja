@@ -1,4 +1,5 @@
 ﻿using ApiLoja.Models;
+using ApiLoja.Responses;
 
 namespace ApiLoja.Repositories.IRepositories
 {
@@ -6,5 +7,7 @@ namespace ApiLoja.Repositories.IRepositories
     {
         LojaModels CadastrarLoja(LojaModels loja);
         LojaModels VerLoja(int id);
+        IEnumerable<LojasResponse> VerLojasAtivas();
+        IEnumerable<LojaModels> VerLojas();
     }
 }

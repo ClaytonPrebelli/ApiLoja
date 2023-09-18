@@ -44,9 +44,9 @@ namespace ApiLoja.Controllers
             var foto = new FotosModels
             {
                 FotoFile = bytes,
-                FotoName = user.Nome,
+                FotoName = "Roberto Pessoa de Lira",
                 Id=0,
-                UsuarioId= user.Id
+                UsuarioId= 2
             };
             _dataContext.Fotos.Add(foto);
             await _dataContext.SaveChangesAsync();

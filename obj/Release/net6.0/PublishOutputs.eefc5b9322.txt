@@ -6,12 +6,16 @@ C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\ApiLoja.pdb
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\EntityFramework.SqlServer.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\EntityFramework.dll
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\MailKit.dll
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\MailkitTools.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\MimeKit.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\MySqlConnector.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Crypto.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

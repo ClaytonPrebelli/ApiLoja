@@ -5,6 +5,9 @@ using ApiLoja.Repositories.IRepositories;
 using ApiLoja.Responses;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 
 namespace ApiLoja.Controllers
 {
@@ -92,6 +95,41 @@ namespace ApiLoja.Controllers
             else
             {
                 return Ok(usuario);
+            }
+        }
+        [HttpPost("EnviarIntencao")]
+        public async Task<ActionResult> EnviarIntencao([FromBody] IntencaoParams form)
+        {
+            //var message = $"<div class='geral' style='margin: 0;padding: 0;width:100%;display: flex;flex-direction: column;align-items: center;row-gap: 16px;		background: rgb(203, 242, 249);		background: radial-gradient(circle, rgba(203, 242, 249, 1) 0%, rgba(127, 159, 235, 1) 100%);		padding: 24px 0; '><img src='https://glumbsp.vercel.app/assets/images/glumbsp_logo.png' alt='' class='logo' style='width: 20%;'><h1 class='title' style='width:80%;text-align: center;'>Você recebeu uma intenção de contato</h1><div class='info' style='border: 2px solid #242fc9;border-radius: 8px;padding: 16px;width: 70%;'><h4 class='linha' style='font-size:18px;'><strong>Nome:</strong> {form.Nome}</h4>		<h4 class='linha' style='font-size:18px;'><strong>Email:</strong> {form.Email}</h4><h4 class='linha' style='font-size:18px;'><strong>Whatsapp:</strong> <a href='https://api.whatsapp.com/send?phone=55{form.Telefone}&text=Ol%C3%A1 {form.Nome}.%20Estou%20retornando%20atrav%C3%A9s%20do%20seu%20contato%20pelo%20site%20Est%C3%A1cio%20Tatui,%20tudo%20bem?' target='_blank'>{form.Telefone}</a></h4><h4 class='linha' style='font-size:18px;'><strong>Cidade Próxima:</strong> {form.Cidade}</h4></div></div>";
+            var message = $"<div class='geral' style='margin: 0;width:100%;display: flex;flex-direction: column;align-items: center;row-gap: 16px;		background: rgb(203, 242, 249);		background: radial-gradient(circle, rgba(203, 242, 249, 1) 0%, rgba(127, 159, 235, 1) 100%);		padding: 8px 0; '><div class='info' style='border: 2px solid #242fc9;border-radius: 8px;padding: 16px;width: 100%; margin:0 auto;'><h4 class='linha' style='font-size:18px;'><strong>Nome:</strong> {form.Nome}</h4>		<h4 class='linha' style='font-size:18px;'><strong>Email:</strong> {form.Email}</h4><h4 class='linha' style='font-size:18px;'><strong>Whatsapp:</strong> <a href='https://api.whatsapp.com/send?phone=55{form.Telefone}&text=Ol%C3%A1 {form.Nome}.%20Estou%20retornando%20atrav%C3%A9s%20do%20seu%20contato%20pelo%20site%20Est%C3%A1cio%20Tatui,%20tudo%20bem?' target='_blank'>{form.Telefone}</a></h4><h4 class='linha' style='font-size:18px;'><strong>Cidade Próxima:</strong> {form.Cidade}</h4></div></div>";
+            var corpo = new BodyBuilder
+            {
+                HtmlBody = message
+            };
+            var mimeMessage = new MimeMessage();
+            mimeMessage.From.Add(MailboxAddress.Parse("clayton@prebellisolucoes.com"));
+            mimeMessage.To.Add(MailboxAddress.Parse("prebelli.lider@gmail.com"));
+            mimeMessage.Bcc.Add(MailboxAddress.Parse("clayton@prebellisolucoes.com"));
+            // mimeMessage.To.Add(MailboxAddress.Parse("clayton@prebellisolucoes.com"));
+            mimeMessage.Subject = "CONTATO PELO SITE GLUMBSP.";
+            mimeMessage.Body = corpo.ToMessageBody();
+
+            try
+            {
+                using (var smtpClient = new SmtpClient())
+                {
+                    smtpClient.SslProtocols = System.Security.Authentication.SslProtocols.None;
+                    smtpClient.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                    await smtpClient.ConnectAsync("smtp.kinghost.net", 587, MailKit.Security.SecureSocketOptions.None);
+                    await smtpClient.AuthenticateAsync(new SaslMechanismLogin("clayton@prebellisolucoes.com", "Lilith@1708"));
+                    await smtpClient.SendAsync(mimeMessage);
+                    await smtpClient.DisconnectAsync(true);
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
             }
         }
 

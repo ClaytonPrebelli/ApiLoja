@@ -6,25 +6,25 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/kWdwwrPT0Cc1ON3D666lQAAAAACAAAAAAAQZgAAAAEAACAAAAAcK3jJrfmgwdgltHqL3DBpZCuOh6oEYjir7izoWYoyRwAAAAAOgAAAAAIAACAAAADWpMYSCa3JX68+3yxh2a/9g0EiUHR3lfDKuw49bcxvgiAAAAAD1VSMvC/AXpxUHMyzUDrgsaARiiAvc6JMl2udrfsWn0AAAAAKAFs6UUL9/kn3RoMW+Zb4sLIGrBbPC7baPRpVQ718QuiAfC/jN73/Iw/tnj2fAIUkCfDg6GRIMXY2CrCo/T6d</EncryptedPassword>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/kWdwwrPT0Cc1ON3D666lQAAAAACAAAAAAAQZgAAAAEAACAAAACeekyqhxczEM93XI35fOjUf+5S5DfHSjIBe+AF8GZBxwAAAAAOgAAAAAIAACAAAACszMFeLJFovUN+HGpijXHoP6nrqviRQ1+yMNMWzLbLRyAAAADUf/065sNtsuaO6dMEELaNU/9s/hs98iOhqC36aNS+20AAAACybxP+eVZZWXhz78GkjmLuS2h4/lF6KPiW/0xfvNNJM8tnC53XACKVywPTcFVdGpgrE4BbEKpFmVxi1blIEhMf</EncryptedPassword>
     <_PublishTargetUrl>ftp://ftp.prebellisolucoes.com/www/apiloja</_PublishTargetUrl>
-    <History>True|2023-09-06T15:24:40.6203174Z;False|2023-09-06T12:24:28.0281678-03:00;False|2023-09-06T12:23:59.7146511-03:00;True|2023-09-06T10:37:23.3825888-03:00;False|2023-09-06T10:37:10.4544469-03:00;True|2023-09-06T10:22:52.8929697-03:00;True|2023-09-05T19:48:25.3011636-03:00;False|2023-09-05T19:48:05.1570170-03:00;True|2023-09-05T19:01:20.0589915-03:00;False|2023-09-05T19:01:03.5400153-03:00;True|2023-09-01T17:48:28.0787695-03:00;False|2023-09-01T17:47:55.5837586-03:00;False|2023-09-01T17:47:44.9678260-03:00;True|2023-09-01T17:36:05.4688446-03:00;False|2023-09-01T17:35:50.5914289-03:00;True|2023-09-01T16:54:53.3089885-03:00;False|2023-09-01T16:54:42.0288057-03:00;True|2023-09-01T16:43:32.1828301-03:00;False|2023-09-01T16:43:18.3077721-03:00;True|2023-09-01T16:42:21.0021598-03:00;False|2023-09-01T16:41:52.1949159-03:00;True|2023-09-01T15:10:40.7314318-03:00;False|2023-09-01T15:10:17.9143913-03:00;True|2023-09-01T15:04:32.9835635-03:00;True|2023-08-24T18:01:21.0489625-03:00;False|2023-08-24T18:00:38.1114471-03:00;True|2023-08-24T12:27:36.5688113-03:00;True|2023-08-24T12:22:29.0024660-03:00;False|2023-08-24T12:13:34.8788069-03:00;False|2023-08-24T12:13:10.0047270-03:00;True|2023-08-22T19:17:18.3236524-03:00;False|2023-08-22T19:16:48.6369738-03:00;True|2023-08-22T19:16:10.5345952-03:00;False|2023-08-22T19:14:41.9311110-03:00;False|2023-08-22T19:11:59.1726731-03:00;True|2023-08-22T19:08:44.1924733-03:00;True|2023-08-22T19:07:47.2901840-03:00;</History>
+    <History>True|2023-09-17T22:46:32.1032178Z;False|2023-09-17T19:43:54.2043380-03:00;True|2023-09-17T19:42:23.1821460-03:00;False|2023-09-17T19:41:59.0894886-03:00;True|2023-09-17T19:39:20.6730229-03:00;False|2023-09-17T19:38:31.5172002-03:00;True|2023-09-17T19:36:01.7665259-03:00;True|2023-09-17T19:32:36.4113910-03:00;True|2023-09-17T18:58:49.7666509-03:00;False|2023-09-17T18:55:43.3675210-03:00;False|2023-09-17T18:54:15.2213942-03:00;False|2023-09-17T18:53:32.5457181-03:00;True|2023-09-06T17:20:32.4638522-03:00;False|2023-09-06T17:20:17.6389425-03:00;True|2023-09-06T17:19:57.0284610-03:00;False|2023-09-06T17:19:41.0909270-03:00;True|2023-09-06T17:18:47.3311035-03:00;True|2023-09-06T17:17:38.0338963-03:00;False|2023-09-06T17:17:24.0049956-03:00;True|2023-09-06T17:05:48.0767614-03:00;False|2023-09-06T17:04:48.5252516-03:00;True|2023-09-06T17:03:45.9858769-03:00;False|2023-09-06T17:03:18.3235027-03:00;True|2023-09-06T15:24:41.8389724-03:00;False|2023-09-06T15:24:29.4441374-03:00;True|2023-09-06T15:06:07.8380463-03:00;False|2023-09-06T15:05:53.2394469-03:00;True|2023-09-06T14:58:13.8202842-03:00;False|2023-09-06T14:57:59.7537641-03:00;True|2023-09-06T12:24:40.6203174-03:00;False|2023-09-06T12:24:28.0281678-03:00;False|2023-09-06T12:23:59.7146511-03:00;True|2023-09-06T10:37:23.3825888-03:00;False|2023-09-06T10:37:10.4544469-03:00;True|2023-09-06T10:22:52.8929697-03:00;True|2023-09-05T19:48:25.3011636-03:00;False|2023-09-05T19:48:05.1570170-03:00;True|2023-09-05T19:01:20.0589915-03:00;False|2023-09-05T19:01:03.5400153-03:00;True|2023-09-01T17:48:28.0787695-03:00;False|2023-09-01T17:47:55.5837586-03:00;False|2023-09-01T17:47:44.9678260-03:00;True|2023-09-01T17:36:05.4688446-03:00;False|2023-09-01T17:35:50.5914289-03:00;True|2023-09-01T16:54:53.3089885-03:00;False|2023-09-01T16:54:42.0288057-03:00;True|2023-09-01T16:43:32.1828301-03:00;False|2023-09-01T16:43:18.3077721-03:00;True|2023-09-01T16:42:21.0021598-03:00;False|2023-09-01T16:41:52.1949159-03:00;True|2023-09-01T15:10:40.7314318-03:00;False|2023-09-01T15:10:17.9143913-03:00;True|2023-09-01T15:04:32.9835635-03:00;True|2023-08-24T18:01:21.0489625-03:00;False|2023-08-24T18:00:38.1114471-03:00;True|2023-08-24T12:27:36.5688113-03:00;True|2023-08-24T12:22:29.0024660-03:00;False|2023-08-24T12:13:34.8788069-03:00;False|2023-08-24T12:13:10.0047270-03:00;True|2023-08-22T19:17:18.3236524-03:00;False|2023-08-22T19:16:48.6369738-03:00;True|2023-08-22T19:16:10.5345952-03:00;False|2023-08-22T19:14:41.9311110-03:00;False|2023-08-22T19:11:59.1726731-03:00;True|2023-08-22T19:08:44.1924733-03:00;True|2023-08-22T19:07:47.2901840-03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApiLoja.deps.json">
-      <publishTime>09/06/2023 12:24:32</publishTime>
+      <publishTime>09/17/2023 19:46:25</publishTime>
     </File>
     <File Include="ApiLoja.dll">
-      <publishTime>09/06/2023 12:24:31</publishTime>
+      <publishTime>09/17/2023 19:46:25</publishTime>
     </File>
     <File Include="ApiLoja.exe">
-      <publishTime>09/06/2023 12:24:31</publishTime>
+      <publishTime>09/17/2023 19:46:25</publishTime>
     </File>
     <File Include="ApiLoja.pdb">
-      <publishTime>09/06/2023 12:24:31</publishTime>
+      <publishTime>09/17/2023 19:46:25</publishTime>
     </File>
     <File Include="ApiLoja.runtimeconfig.json">
-      <publishTime>09/06/2023 10:01:20</publishTime>
+      <publishTime>09/17/2023 18:58:33</publishTime>
     </File>
     <File Include="appsettings.Development.json">
       <publishTime>08/10/2023 11:55:42</publishTime>
@@ -32,11 +32,20 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="appsettings.json">
       <publishTime>08/10/2023 11:55:42</publishTime>
     </File>
+    <File Include="BouncyCastle.Crypto.dll">
+      <publishTime>08/17/2017 15:20:54</publishTime>
+    </File>
     <File Include="EntityFramework.dll">
       <publishTime>09/11/2013 06:10:04</publishTime>
     </File>
     <File Include="EntityFramework.SqlServer.dll">
       <publishTime>09/11/2013 06:10:04</publishTime>
+    </File>
+    <File Include="MailKit.dll">
+      <publishTime>04/15/2018 10:33:50</publishTime>
+    </File>
+    <File Include="MailkitTools.dll">
+      <publishTime>12/12/2021 12:03:06</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
       <publishTime>10/23/2021 15:35:34</publishTime>
@@ -49,6 +58,9 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     </File>
     <File Include="Microsoft.OpenApi.dll">
       <publishTime>08/29/2020 17:14:12</publishTime>
+    </File>
+    <File Include="MimeKit.dll">
+      <publishTime>04/14/2018 10:16:48</publishTime>
     </File>
     <File Include="MySqlConnector.dll">
       <publishTime>11/09/2021 13:05:54</publishTime>
@@ -66,7 +78,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>10/16/2021 09:54:30</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>09/06/2023 12:24:32</publishTime>
+      <publishTime>09/17/2023 19:46:25</publishTime>
     </File>
   </ItemGroup>
 </Project>

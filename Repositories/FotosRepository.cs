@@ -57,6 +57,11 @@ namespace ApiLoja.Repositories
             var noticia = _dataContext.FotosNoticias.Where(x=>x.NoticiasId == id).ToList();
             return noticia;
         }
+        public ICollection<FotosLojasModels> VerFotoLoja(int id)
+        {
+            var noticia = _dataContext.FotosLojas.Where(x => x.LojasId == id).ToList();
+            return noticia;
+        }
 
     }
 }

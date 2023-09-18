@@ -33,4 +33,8 @@ C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ref\ApiLoja.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.pdb
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.genruntimeconfig.cache
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Release\net6.0\MailKit.dll
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Release\net6.0\MailkitTools.dll
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Release\net6.0\MimeKit.dll
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Release\net6.0\BouncyCastle.Crypto.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Release\net6.0\ApiLoja.csproj.AssemblyReference.cache
