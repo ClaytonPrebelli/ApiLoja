@@ -10,5 +10,6 @@ namespace ApiLoja.Repositories.IRepositories
         IEnumerable<UsuarioModels> ListarUsuarios();
         UsuarioModels Login(LoginParams param);
         UsuarioModels VerficaAtivo(int id);
+        UsuarioModels AtualizaUser(UsuarioModels usuario);
     }
 }

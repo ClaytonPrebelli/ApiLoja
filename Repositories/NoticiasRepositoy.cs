@@ -57,13 +57,21 @@ namespace ApiLoja.Repositories
         }
         public NoticiasModels VerNoticia(int id)
         {
-            var noticia = _dataContext.Noticias.FirstOrDefault(x => x.Id == id);
+            var noticia = _dataContext.Noticias
+                .Include(x=>x.FotosNoticias)
+                .Include(x=>x.Autor)
+                .FirstOrDefault(x => x.Id == id)
+                ;
             if (noticia == null)
             {
                 return null;
             }
             else
             {
+                var fotos = _fotosRepository.VerFotoNoticia(noticia.Id).ToList();
+                var autor = _usuariosRepository.VerUsuario(noticia.AutorId);
+                noticia.FotosNoticias = fotos;
+                noticia.Autor = autor;
                 return noticia;
             }
         }

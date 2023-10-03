@@ -65,6 +65,7 @@ namespace ApiLoja.Repositories
                 dadosLoja.Endereco = loja.Endereco;
                 dadosLoja.Estado = loja.Estado;
                 dadosLoja.Oriente = loja.Oriente;
+                dadosLoja.Instagram = loja.Instagram;
                 
                 var foto = _fotos.VerFotoLoja(loja.Id).ToList();
                 if (foto.Any())

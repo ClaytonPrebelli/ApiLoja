@@ -44,13 +44,14 @@ namespace ApiLoja.Controllers
             var foto = new FotosModels
             {
                 FotoFile = bytes,
-                FotoName = "Roberto Pessoa de Lira",
+                FotoName = user.Nome,
                 Id=0,
                 UsuarioId= 2
             };
             _dataContext.Fotos.Add(foto);
             await _dataContext.SaveChangesAsync();
-            
+            user.FotoId=foto.Id;
+            _usuariosRepository.AtualizaUser(user);
             return Ok();
         }
         [HttpPost("GravarFotoLojas")]

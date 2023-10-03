@@ -91,6 +91,21 @@ namespace ApiLoja.Repositories
             return usuario;
 
         }
+        public UsuarioModels AtualizaUser(UsuarioModels usuario)
+        {
+            if (usuario == null)
+            {
+                return null;
+            }
+            else
+            {
+                string hash = GerarHashMd5(usuario.Pass);
+                usuario.Pass = hash;
+                _dataContext.Usuario.Update(usuario);
+                _dataContext.SaveChanges();
+                return usuario;
+            }
+        }
         public static string GerarHashMd5(string input)
         {
             MD5 md5Hash = MD5.Create();

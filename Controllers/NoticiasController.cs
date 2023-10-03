@@ -31,6 +31,19 @@ namespace ApiLoja.Controllers
                 return Ok(noticias);
             }
         }
+        [HttpGet("VerNoticia")]
+        public ActionResult<NoticiasModels> VerNoticia([FromQuery]int id)
+        {
+            var noticia = _noticiasRepository.VerNoticia(id);
+            if(noticia == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(noticia);
+            }
+        }
 
         [HttpPost("CadastrarNoticia")]
         public ActionResult<NoticiasModels> CadastrarNoticia ([FromBody] NoticiasModels noticia)
