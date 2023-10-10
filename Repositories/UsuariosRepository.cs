@@ -2,6 +2,7 @@
 using ApiLoja.Models;
 using ApiLoja.Params;
 using ApiLoja.Repositories.IRepositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
@@ -105,6 +106,11 @@ namespace ApiLoja.Repositories
                 _dataContext.SaveChanges();
                 return usuario;
             }
+        }
+        public IEnumerable<StatusModels> VerStatus()
+        {
+            var status = _dataContext.Status.ToList();
+            return status;
         }
         public static string GerarHashMd5(string input)
         {

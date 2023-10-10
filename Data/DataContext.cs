@@ -20,6 +20,6 @@ namespace ApiLoja.Data
         public DbSet<DocumentosModels> Documentos { get; set; }
         public DbSet<LojaModels> Lojas { get; set; }
         public DbSet<NoticiasModels> Noticias { get; set; }
-        public DbSet<TesteModels> Teste { get; set; }
+
     }
 }

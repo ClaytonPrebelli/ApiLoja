@@ -84,6 +84,19 @@ namespace ApiLoja.Controllers
                 }
             }
         }
+        [HttpGet("VerStatus")]
+        public async Task<ActionResult> VerStatus()
+        {
+            var status = _usuariosRepository.VerStatus();
+            if (status == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(status);
+            }
+        }
         [HttpGet("VerificaAtivo")]
         public ActionResult<LoginResponse> ConfereAtivo([FromQuery] int id)
         {

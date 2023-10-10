@@ -11,5 +11,6 @@ namespace ApiLoja.Repositories.IRepositories
         UsuarioModels Login(LoginParams param);
         UsuarioModels VerficaAtivo(int id);
         UsuarioModels AtualizaUser(UsuarioModels usuario);
+        IEnumerable<StatusModels> VerStatus();
     }
 }
