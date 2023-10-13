@@ -46,7 +46,7 @@ namespace ApiLoja.Controllers
                 FotoFile = bytes,
                 FotoName = user.Nome,
                 Id=0,
-                UsuarioId= 2
+                UsuarioId= id
             };
             _dataContext.Fotos.Add(foto);
             await _dataContext.SaveChangesAsync();
@@ -100,5 +100,34 @@ namespace ApiLoja.Controllers
 
             return Ok();
         }
+        
+        [HttpGet("VerFotoUser")]
+        public async Task<ActionResult> VerFotoUser([FromQuery]int idFoto)
+        {
+            var foto = _fotosRepository.VerFotoUser(idFoto);
+            if(foto == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(foto);
+            }
+        }
+
+        [HttpGet("VerFotoLoja")]
+        public async Task<ActionResult> VerFotoLoja([FromQuery] int lojaId)
+        {
+            var foto = _fotosRepository.VerFotoLoja(lojaId).FirstOrDefault();
+            if (foto == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(foto);
+            }
+        }
+
     }
 }

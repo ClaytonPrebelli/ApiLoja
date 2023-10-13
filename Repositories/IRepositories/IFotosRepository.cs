@@ -10,5 +10,6 @@ namespace ApiLoja.Repositories.IRepositories
         ICollection<FotosNoticiaModels> VerFotoNoticia(int id);
         string CadastrarFotosNoticias(FotosNoticiaModels foto);
         ICollection<FotosLojasModels> VerFotoLoja(int id);
+        FotosModels VerFotoUser(int id);
     }
 }

@@ -9,6 +9,7 @@ namespace ApiLoja.Models
         public int UsuarioId { get; set; }
         public string FamiliarNome { get; set; }
         public DateTime NascimentoFamiliar { get; set; }
+        public string? Telefone { get; set; }
         public string Relacao { get; set; }
       
     }

@@ -12,15 +12,17 @@ namespace ApiLoja.Repositories
     public class UsuariosRepository:IUsuariosRepository
     {
         private readonly DataContext _dataContext;
-        public UsuariosRepository(DataContext dataContext)
+        private readonly IFotosRepository _fotosRepository;
+        public UsuariosRepository(DataContext dataContext, IFotosRepository fotosRepository)
         {
             _dataContext = dataContext;
+            _fotosRepository = fotosRepository;
         }
 
         public UsuarioModels CadastrarUsuario(UsuarioModels usuario)
         {
             string hash = GerarHashMd5(usuario.Pass);
-
+            
             usuario.Pass = hash;
             try
             {
@@ -30,7 +32,7 @@ namespace ApiLoja.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(ex.InnerException.Message);
             }
         }
         public UsuarioModels VerUsuario(int id)
@@ -39,11 +41,14 @@ namespace ApiLoja.Repositories
                 .Include(x=>x.Loja)
                 .Include(x=>x.Status)
                 .Include(x=>x.Cobrancas)
+                .Include(x=>x.Foto)
+                .Include(x=>x.Familiares)
                 .FirstOrDefault(x => x.Id == id);
             if(usuario == null)
             {
                 return null;
             }
+           
             return usuario; 
         }
         public IEnumerable<UsuarioModels> ListarUsuarios()
@@ -52,6 +57,7 @@ namespace ApiLoja.Repositories
                 .Include(x=>x.Loja)
                 .Include(x=>x.Status)
                 .Include(x=>x.Foto)
+                .Include(x=>x.Familiares)
                 .ToList();
             if(usuario == null)
             {
@@ -100,7 +106,7 @@ namespace ApiLoja.Repositories
             }
             else
             {
-                string hash = GerarHashMd5(usuario.Pass);
+                string hash = usuario.Pass;
                 usuario.Pass = hash;
                 _dataContext.Usuario.Update(usuario);
                 _dataContext.SaveChanges();

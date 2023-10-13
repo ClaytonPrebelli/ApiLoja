@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
+using System.Text;
+using ApiLoja.Helpers;
 
 namespace ApiLoja.Controllers
 {
@@ -19,15 +21,18 @@ namespace ApiLoja.Controllers
 
         private readonly IUsuariosRepository _usuariosRepository;
         private readonly DataContext _dataContext;
-        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository)
+        private readonly ExportHtml _export;
+        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository,ExportHtml exportHtml)
         {
             _dataContext = dataContext;
             _usuariosRepository = usuariosRepository;
+            _export = exportHtml;
         }
 
         [HttpPost("CadastrarUsuario")]
         public ActionResult<UsuarioModels> CadastrarUsuarioAsync([FromBody] UsuarioModels usuario)
         {
+           
             var result =  _usuariosRepository.CadastrarUsuario(usuario);
 
             if (result!=null)
@@ -61,6 +66,7 @@ namespace ApiLoja.Controllers
             }
             else
             {
+                param.CPF = param.CPF.Replace(" ", "").Replace(".", "").Replace("/", "").Replace("-", "");
                 var usuario = _usuariosRepository.Login(param);
                 if (usuario==null)
                 {
@@ -97,6 +103,20 @@ namespace ApiLoja.Controllers
                 return Ok(status);
             }
         }
+        [HttpGet("VerUsuario")]
+        public async Task<ActionResult> VerUsuario([FromQuery]int id)
+        {
+            var usuario = _usuariosRepository.VerUsuario(id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+               
+                return Ok(usuario);
+            }
+        }
         [HttpGet("VerificaAtivo")]
         public ActionResult<LoginResponse> ConfereAtivo([FromQuery] int id)
         {
@@ -110,6 +130,7 @@ namespace ApiLoja.Controllers
                 return Ok(usuario);
             }
         }
+       
         [HttpPost("EnviarIntencao")]
         public async Task<ActionResult> EnviarIntencao([FromBody] IntencaoParams form)
         {
