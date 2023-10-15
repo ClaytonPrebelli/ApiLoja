@@ -130,7 +130,11 @@ namespace ApiLoja.Controllers
                 return Ok(usuario);
             }
         }
-       
+       [HttpGet("BuscarFamiliares")]
+       public ActionResult BuscarFamiliares([FromQuery] int idMacom)
+        {
+
+        }
         [HttpPost("EnviarIntencao")]
         public async Task<ActionResult> EnviarIntencao([FromBody] IntencaoParams form)
         {
