@@ -9,7 +9,7 @@ using MimeKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using System.Text;
-using ApiLoja.Helpers;
+
 
 namespace ApiLoja.Controllers
 {
@@ -21,23 +21,41 @@ namespace ApiLoja.Controllers
 
         private readonly IUsuariosRepository _usuariosRepository;
         private readonly DataContext _dataContext;
-        private readonly ExportHtml _export;
-        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository,ExportHtml exportHtml)
+
+        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository)
         {
             _dataContext = dataContext;
             _usuariosRepository = usuariosRepository;
-            _export = exportHtml;
+
         }
 
         [HttpPost("CadastrarUsuario")]
         public ActionResult<UsuarioModels> CadastrarUsuarioAsync([FromBody] UsuarioModels usuario)
         {
-           
-            var result =  _usuariosRepository.CadastrarUsuario(usuario);
 
+            if (usuario.CIM==0)
+            {
+                var ultimoCim = _usuariosRepository.VerUltimoCim();
+                usuario.CIM = ultimoCim+1;
+                
+            }
+            var result = _usuariosRepository.CadastrarUsuario(usuario);
             if (result!=null)
             {
                 return Created("criado",result);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [HttpPost("CadastrarFamiliar")]
+        public ActionResult<FamiliaresModels> CadastrarFamiliar([FromBody] FamiliaresModels familiar)
+        {
+            var result = _usuariosRepository.CadastrarFamiliar(familiar);
+            if (result!=null)
+            {
+                return Created("Criado", familiar);
             }
             else
             {
@@ -130,11 +148,11 @@ namespace ApiLoja.Controllers
                 return Ok(usuario);
             }
         }
-       [HttpGet("BuscarFamiliares")]
+       /*[HttpGet("BuscarFamiliares")]
        public ActionResult BuscarFamiliares([FromQuery] int idMacom)
         {
 
-        }
+        }*/
         [HttpPost("EnviarIntencao")]
         public async Task<ActionResult> EnviarIntencao([FromBody] IntencaoParams form)
         {

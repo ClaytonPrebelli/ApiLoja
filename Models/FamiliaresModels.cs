@@ -11,6 +11,8 @@ namespace ApiLoja.Models
         public DateTime NascimentoFamiliar { get; set; }
         public string? Telefone { get; set; }
         public string Relacao { get; set; }
-      
+        public int? UsuarioModelsId { get; set; }
+    public int? CandidatosModelsId { get; set; }
+
     }
 }

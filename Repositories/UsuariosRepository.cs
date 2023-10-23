@@ -18,7 +18,17 @@ namespace ApiLoja.Repositories
             _dataContext = dataContext;
             _fotosRepository = fotosRepository;
         }
-
+        public int VerUltimoCim()
+        {
+            var ultimoUser = _dataContext.Usuario.OrderByDescending(x=>x.CIM).FirstOrDefault();
+            var ultimoCim = 0;
+            if(ultimoUser != null)
+            {
+                var cim = int.Parse(ultimoUser.CIM!=null?ultimoUser.CIM.ToString():"150");
+                ultimoCim = cim;
+            }
+            return ultimoCim;
+        }
         public UsuarioModels CadastrarUsuario(UsuarioModels usuario)
         {
             string hash = GerarHashMd5(usuario.Pass);
@@ -117,6 +127,13 @@ namespace ApiLoja.Repositories
         {
             var status = _dataContext.Status.ToList();
             return status;
+        }
+
+        public FamiliaresModels CadastrarFamiliar(FamiliaresModels familiar)
+        {
+            _dataContext.Familiares.Add(familiar);
+            _dataContext.SaveChanges();
+            return familiar;
         }
         public static string GerarHashMd5(string input)
         {

@@ -24,6 +24,8 @@ builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<IFotosRepository, FotosRepository>();
 builder.Services.AddScoped<INoticiasRepository, NoticiasRepositoy>();
 builder.Services.AddScoped<ILojasRepository,LojasRepository>();
+builder.Services.AddScoped<ICandidatosRepository, CandidatosRepository>();
+builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 //repository
 var app = builder.Build();
 
