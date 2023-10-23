@@ -25,5 +25,10 @@ namespace ApiLoja.Repositories
                 throw new Exception(ex.Message);
             }
         }
+        public StatusModels VerStatus(int id)
+        {
+            var status = _dataContext.Status.FirstOrDefault(x => x.Id == id);
+            return status;
+        }
     }
 }

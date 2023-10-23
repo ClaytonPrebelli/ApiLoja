@@ -37,9 +37,4 @@ C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Debug\net6.0\MailkitTo
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Debug\net6.0\MimeKit.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Debug\net6.0\ApiLoja.csproj.AssemblyReference.cache
-C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Debug\net6.0\staticwebassets\msbuild.ApiLoja.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Debug\net6.0\staticwebassets\msbuild.build.ApiLoja.props
-C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ApiLoja.props
-C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ApiLoja.props
-C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\obj\Debug\net6.0\refint\ApiLoja.dll
+C:\Users\ACT\Documents\projetosEstudo\apiloja\ApiLoja\bin\Debug\net6.0\ref\ApiLoja.dll

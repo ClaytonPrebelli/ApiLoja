@@ -19,8 +19,9 @@ namespace ApiLoja.Repositories
             TokenModels novoToken = new TokenModels()
             {
                 Ativo = true,
-                Id = id,
-                Token = tokenString.ToString()
+                Id = 0,
+                Token = tokenString.ToString(),
+                QuemIndica = id
 
             };
             try

@@ -15,18 +15,24 @@ namespace ApiLoja.Controllers
         private readonly ICandidatosRepository _candidatos;
         private readonly DataContext _dataContext;
         private readonly ITokenRepository _tokenRepository;
-        
-        public CandidatosController(DataContext dataContext, ICandidatosRepository candidatos,ITokenRepository tokenRepository)
+        private readonly IStatusRepository _statusRepository;
+        private readonly IUsuariosRepository _usuariosRepository;
+        private readonly IFamiliaresRepository _familias;
+
+        public CandidatosController(DataContext dataContext, ICandidatosRepository candidatos, ITokenRepository tokenRepository, IStatusRepository statusRepository, IUsuariosRepository usuariosRepository, IFamiliaresRepository familiaresRepository)
         {
             _dataContext = dataContext;
             _candidatos = candidatos;
             _tokenRepository = tokenRepository;
+            _statusRepository = statusRepository;
+            _usuariosRepository = usuariosRepository;
+            _familias = familiaresRepository;
         }
         [HttpGet("GerarTokenCandidato")]
         public ActionResult<string> GerarToken(int id)
         {
             var token = _tokenRepository.GerarToken(id);
-            return Ok(token);
+            return Created(token,token);
         }
         [HttpGet("ValidarToken")]
         public ActionResult<TokenModels> ValidarToken([FromQuery] string token)
@@ -60,6 +66,38 @@ namespace ApiLoja.Controllers
             else
             {
                 return BadRequest();
+            }
+        }
+        [HttpGet("VerCandidatos")]
+        public ActionResult<IEnumerable<CandidatosModels>> VerCandidatos()
+        {
+            var result = _candidatos.VerCandidatos();
+            if (result!=null)
+            {
+                foreach(var candidato in result)
+                {
+                    candidato.Status = _statusRepository.VerStatus(candidato.StatusId);
+                    candidato.Familiares = _familias.VerFamiliaresCandidato(candidato.Id).ToList();
+                }
+                return Ok(result);
+            }
+            else{
+                return BadRequest();
+            }
+        }
+        [HttpGet("VerCandidato")]
+        public ActionResult<CandidatosModels> VerCandidato(int id)
+        {
+            var result = _candidatos.VerCandidato(id);
+            if (result!=null)
+            {
+                result.Status = _statusRepository.VerStatus(result.StatusId);
+                result.Familiares = _familias.VerFamiliaresCandidato(result.Id).ToList();
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
             }
         }
     }

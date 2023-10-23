@@ -26,5 +26,16 @@ namespace ApiLoja.Repositories
                 throw new Exception(ex.InnerException.Message);
             }
         }
+        public IEnumerable<CandidatosModels> VerCandidatos()
+        {
+            var candidatos = _dataContext.Candidatos
+                .ToList();
+            return candidatos;
+        }
+        public CandidatosModels VerCandidato(int id)
+        {
+            var candidato = _dataContext.Candidatos.Where(x=>x.Id == id).FirstOrDefault();
+            return candidato;
+        }
     }
 }

@@ -26,6 +26,7 @@ builder.Services.AddScoped<INoticiasRepository, NoticiasRepositoy>();
 builder.Services.AddScoped<ILojasRepository,LojasRepository>();
 builder.Services.AddScoped<ICandidatosRepository, CandidatosRepository>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
+builder.Services.AddScoped<IFamiliaresRepository, FamiliaresRepository>();
 //repository
 var app = builder.Build();
 
