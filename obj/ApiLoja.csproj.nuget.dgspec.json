@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACT\\Documents\\projetosEstudo\\apiloja\\ApiLoja\\ApiLoja.csproj": {}
+    "C:\\Users\\ACT\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACT\\Documents\\projetosEstudo\\apiloja\\ApiLoja\\ApiLoja.csproj": {
+    "C:\\Users\\ACT\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACT\\Documents\\projetosEstudo\\apiloja\\ApiLoja\\ApiLoja.csproj",
+        "projectUniqueName": "C:\\Users\\ACT\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj",
         "projectName": "ApiLoja",
-        "projectPath": "C:\\Users\\ACT\\Documents\\projetosEstudo\\apiloja\\ApiLoja\\ApiLoja.csproj",
+        "projectPath": "C:\\Users\\ACT\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj",
         "packagesPath": "C:\\Users\\ACT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACT\\Documents\\projetosEstudo\\apiloja\\ApiLoja\\obj\\",
+        "outputPath": "C:\\Users\\ACT\\Documents\\projetosEstudo\\APiGlumb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

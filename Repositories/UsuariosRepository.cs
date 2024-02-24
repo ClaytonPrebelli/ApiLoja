@@ -2,6 +2,7 @@
 using ApiLoja.Models;
 using ApiLoja.Params;
 using ApiLoja.Repositories.IRepositories;
+using ApiLoja.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -13,10 +14,12 @@ namespace ApiLoja.Repositories
     {
         private readonly DataContext _dataContext;
         private readonly IFotosRepository _fotosRepository;
-        public UsuariosRepository(DataContext dataContext, IFotosRepository fotosRepository)
+        private readonly IFamiliaresRepository _familiaresRepository;
+        public UsuariosRepository(DataContext dataContext, IFotosRepository fotosRepository,IFamiliaresRepository familiaresRepository)
         {
             _dataContext = dataContext;
             _fotosRepository = fotosRepository;
+            _familiaresRepository = familiaresRepository;
         }
         public int VerUltimoCim()
         {
@@ -152,5 +155,20 @@ namespace ApiLoja.Repositories
 
             return sBuilder.ToString();
         }
+        public List<UsuarioModels> VerAniversarios()
+        {
+            var mesAtual = DateTime.Now.Month;
+
+            var lista = _dataContext.Usuario.Where(x => x.StatusId == 1 && x.Nascimento.Month == mesAtual)
+                                             .Include(x => x.Loja)
+                                             .Include(x => x.Status)
+                                             .Include(x => x.Foto)
+                                             .ToList();
+            
+
+           lista.OrderBy(x => x.Nascimento);
+            return lista;
+        }
+        
     }
 }

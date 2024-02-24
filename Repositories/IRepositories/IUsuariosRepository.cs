@@ -1,5 +1,6 @@
 ﻿using ApiLoja.Models;
 using ApiLoja.Params;
+using ApiLoja.Responses;
 
 namespace ApiLoja.Repositories.IRepositories
 {
@@ -14,5 +15,7 @@ namespace ApiLoja.Repositories.IRepositories
         UsuarioModels AtualizaUser(UsuarioModels usuario);
         IEnumerable<StatusModels> VerStatus();
         FamiliaresModels CadastrarFamiliar(FamiliaresModels familiar);
+        List<UsuarioModels> VerAniversarios();
+        
     }
 }

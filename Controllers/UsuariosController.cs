@@ -17,15 +17,18 @@ namespace ApiLoja.Controllers
     [Route("[controller]")]
     [EnableCors("Politica")]
     public class UsuariosController:ControllerBase
+
     {
 
         private readonly IUsuariosRepository _usuariosRepository;
+        private readonly IFamiliaresRepository _familiaresRepository;
         private readonly DataContext _dataContext;
 
-        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository)
+        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository, IFamiliaresRepository familiaresRepository)
         {
             _dataContext = dataContext;
             _usuariosRepository = usuariosRepository;
+            _familiaresRepository = familiaresRepository;
 
         }
 
@@ -189,5 +192,35 @@ namespace ApiLoja.Controllers
             }
         }
 
+        [HttpGet("VerAniversarios")]
+        public async Task<ActionResult> VerAniversarios()
+        {
+            var lista = _usuariosRepository.VerAniversarios();
+            if (lista!=null)
+            {
+                return Ok(lista);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [HttpGet("VerNiverFamilia")]
+        public async Task<ActionResult> VerNiverFamilia()
+        {
+            var lista = _familiaresRepository.VerAniversarioFamilia();
+            
+           
+            if (lista!=null)
+            {
+                return Ok(lista);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+           
+        
     }
 }
