@@ -22,13 +22,15 @@ namespace ApiLoja.Controllers
 
         private readonly IUsuariosRepository _usuariosRepository;
         private readonly IFamiliaresRepository _familiaresRepository;
+        private readonly ILojasRepository _lojasRepository;
         private readonly DataContext _dataContext;
 
-        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository, IFamiliaresRepository familiaresRepository)
+        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository, IFamiliaresRepository familiaresRepository, ILojasRepository lojasRepository)
         {
             _dataContext = dataContext;
             _usuariosRepository = usuariosRepository;
             _familiaresRepository = familiaresRepository;
+            _lojasRepository = lojasRepository;
 
         }
 
@@ -220,7 +222,16 @@ namespace ApiLoja.Controllers
                 return BadRequest();
             }
         }
+        [HttpGet("Carteirinha")]
+        public ActionResult<byte[]> Carteirinha([FromQuery] int id)
+        {
+            var macom = _usuariosRepository.VerUsuario(id);
+            var loja = _lojasRepository.VerLoja(macom.Id);
+            var carteirinha = _usuariosRepository.GerarCarteirinha(macom,loja);
 
+
+            return Ok(carteirinha);
+        }
 
     }
 }

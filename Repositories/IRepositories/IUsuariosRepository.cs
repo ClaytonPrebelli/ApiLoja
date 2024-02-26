@@ -16,6 +16,8 @@ namespace ApiLoja.Repositories.IRepositories
         IEnumerable<StatusModels> VerStatus();
         FamiliaresModels CadastrarFamiliar(FamiliaresModels familiar);
         List<UsuarioModels> VerAniversarios();
-        
+        byte[] GerarCarteirinha(UsuarioModels macom, LojaModels loja);
+
+
     }
 }
