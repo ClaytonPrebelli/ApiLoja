@@ -78,3 +78,5 @@ C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\ApiLoja.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\ref\ApiLoja.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\ApiLoja.pdb
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\ApiLoja.genruntimeconfig.cache
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Release\net6.0\DynamicPDF.CoreSuite.dll
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Release\net6.0\DynamicPDF.HTMLConverter.dll

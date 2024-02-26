@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ceTe.DynamicPDF.CoreSuite.NET" Version="12.15.0" />
+    <PackageReference Include="ceTe.DynamicPDF.HtmlConverter.NET" Version="1.16.0" />
     <PackageReference Include="EntityFramework" Version="6.0.0" />
     <PackageReference Include="MailkitTools" Version="1.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">

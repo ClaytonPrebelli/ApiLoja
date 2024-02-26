@@ -10,12 +10,12 @@ using System.Text;
 
 namespace ApiLoja.Repositories
 {
-    public class UsuariosRepository:IUsuariosRepository
+    public class UsuariosRepository : IUsuariosRepository
     {
         private readonly DataContext _dataContext;
         private readonly IFotosRepository _fotosRepository;
         private readonly IFamiliaresRepository _familiaresRepository;
-        public UsuariosRepository(DataContext dataContext, IFotosRepository fotosRepository,IFamiliaresRepository familiaresRepository)
+        public UsuariosRepository(DataContext dataContext, IFotosRepository fotosRepository, IFamiliaresRepository familiaresRepository)
         {
             _dataContext = dataContext;
             _fotosRepository = fotosRepository;
@@ -23,11 +23,11 @@ namespace ApiLoja.Repositories
         }
         public int VerUltimoCim()
         {
-            var ultimoUser = _dataContext.Usuario.OrderByDescending(x=>x.CIM).FirstOrDefault();
+            var ultimoUser = _dataContext.Usuario.OrderByDescending(x => x.CIM).FirstOrDefault();
             var ultimoCim = 0;
-            if(ultimoUser != null)
+            if (ultimoUser != null)
             {
-                var cim = int.Parse(ultimoUser.CIM!=null?ultimoUser.CIM.ToString():"150");
+                var cim = int.Parse(ultimoUser.CIM!=null ? ultimoUser.CIM.ToString() : "150");
                 ultimoCim = cim;
             }
             return ultimoCim;
@@ -35,7 +35,7 @@ namespace ApiLoja.Repositories
         public UsuarioModels CadastrarUsuario(UsuarioModels usuario)
         {
             string hash = GerarHashMd5(usuario.Pass);
-            
+
             usuario.Pass = hash;
             try
             {
@@ -51,28 +51,28 @@ namespace ApiLoja.Repositories
         public UsuarioModels VerUsuario(int id)
         {
             var usuario = _dataContext.Usuario
-                .Include(x=>x.Loja)
-                .Include(x=>x.Status)
-                .Include(x=>x.Cobrancas)
-                .Include(x=>x.Foto)
-                .Include(x=>x.Familiares)
+                .Include(x => x.Loja)
+                .Include(x => x.Status)
+                .Include(x => x.Cobrancas)
+                .Include(x => x.Foto)
+                .Include(x => x.Familiares)
                 .FirstOrDefault(x => x.Id == id);
-            if(usuario == null)
+            if (usuario == null)
             {
                 return null;
             }
-           
-            return usuario; 
+
+            return usuario;
         }
         public IEnumerable<UsuarioModels> ListarUsuarios()
         {
             var usuario = _dataContext.Usuario
-                .Include(x=>x.Loja)
-                .Include(x=>x.Status)
-                .Include(x=>x.Foto)
-                .Include(x=>x.Familiares)
+                .Include(x => x.Loja)
+                .Include(x => x.Status)
+                .Include(x => x.Foto)
+                .Include(x => x.Familiares)
                 .ToList();
-            if(usuario == null)
+            if (usuario == null)
             {
                 return Enumerable.Empty<UsuarioModels>();
 
@@ -84,7 +84,8 @@ namespace ApiLoja.Repositories
         }
         public UsuarioModels Login(LoginParams param)
         {
-            if(param == null){
+            if (param == null)
+            {
                 return null;
             }
             else
@@ -92,7 +93,7 @@ namespace ApiLoja.Repositories
                 param.CPF = param.CPF.Replace(".", "").Replace("-", "");
                 var senha = GerarHashMd5(param.Pass);
                 param.Pass = senha;
-                var usuario = _dataContext.Usuario.Where(x=>x.StatusId == 1 && x.CPF == param.CPF && x.Pass == param.Pass)
+                var usuario = _dataContext.Usuario.Where(x => x.StatusId == 1 && x.CPF == param.CPF && x.Pass == param.Pass)
                      .Include(x => x.Loja)
                 .Include(x => x.Status)
                 .Include(x => x.Foto)
@@ -103,10 +104,10 @@ namespace ApiLoja.Repositories
 
         public UsuarioModels VerficaAtivo(int id)
         {
-            var usuario = _dataContext.Usuario.Where(x=>x.Id==id && x.StatusId==1)
-                .Include(x=>x.Loja)
-                .Include(x=>x.Status)
-                .Include(x=>x.Foto)
+            var usuario = _dataContext.Usuario.Where(x => x.Id==id && x.StatusId==1)
+                .Include(x => x.Loja)
+                .Include(x => x.Status)
+                .Include(x => x.Foto)
                 .FirstOrDefault();
             return usuario;
 
@@ -164,11 +165,11 @@ namespace ApiLoja.Repositories
                                              .Include(x => x.Status)
                                              .Include(x => x.Foto)
                                              .ToList();
-            
 
-           lista.OrderBy(x => x.Nascimento);
+
+            lista.OrderBy(x => x.Nascimento);
             return lista;
         }
-        
+
     }
 }

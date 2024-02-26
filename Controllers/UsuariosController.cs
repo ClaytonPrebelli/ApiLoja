@@ -16,7 +16,7 @@ namespace ApiLoja.Controllers
     [Controller]
     [Route("[controller]")]
     [EnableCors("Politica")]
-    public class UsuariosController:ControllerBase
+    public class UsuariosController : ControllerBase
 
     {
 
@@ -40,12 +40,12 @@ namespace ApiLoja.Controllers
             {
                 var ultimoCim = _usuariosRepository.VerUltimoCim();
                 usuario.CIM = ultimoCim+1;
-                
+
             }
             var result = _usuariosRepository.CadastrarUsuario(usuario);
             if (result!=null)
             {
-                return Created("criado",result);
+                return Created("criado", result);
             }
             else
             {
@@ -106,7 +106,7 @@ namespace ApiLoja.Controllers
                     response.Id = usuario.Id;
                     response.LojaId = usuario.LojaId;
                     response.Titulo = usuario.Titulo;
-                    response.Foto = usuario.Foto!=null ? usuario.Foto.FotoFile :null;
+                    response.Foto = usuario.Foto!=null ? usuario.Foto.FotoFile : null;
                     return Ok(response);
                 }
             }
@@ -125,7 +125,7 @@ namespace ApiLoja.Controllers
             }
         }
         [HttpGet("VerUsuario")]
-        public async Task<ActionResult> VerUsuario([FromQuery]int id)
+        public async Task<ActionResult> VerUsuario([FromQuery] int id)
         {
             var usuario = _usuariosRepository.VerUsuario(id);
             if (usuario == null)
@@ -134,7 +134,7 @@ namespace ApiLoja.Controllers
             }
             else
             {
-               
+
                 return Ok(usuario);
             }
         }
@@ -151,11 +151,11 @@ namespace ApiLoja.Controllers
                 return Ok(usuario);
             }
         }
-       /*[HttpGet("BuscarFamiliares")]
-       public ActionResult BuscarFamiliares([FromQuery] int idMacom)
-        {
+        /*[HttpGet("BuscarFamiliares")]
+        public ActionResult BuscarFamiliares([FromQuery] int idMacom)
+         {
 
-        }*/
+         }*/
         [HttpPost("EnviarIntencao")]
         public async Task<ActionResult> EnviarIntencao([FromBody] IntencaoParams form)
         {
@@ -209,8 +209,8 @@ namespace ApiLoja.Controllers
         public async Task<ActionResult> VerNiverFamilia()
         {
             var lista = _familiaresRepository.VerAniversarioFamilia();
-            
-           
+
+
             if (lista!=null)
             {
                 return Ok(lista);
@@ -220,7 +220,7 @@ namespace ApiLoja.Controllers
                 return BadRequest();
             }
         }
-           
-        
+
+
     }
 }

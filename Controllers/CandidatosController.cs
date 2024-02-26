@@ -32,7 +32,7 @@ namespace ApiLoja.Controllers
         public ActionResult<string> GerarToken(int id)
         {
             var token = _tokenRepository.GerarToken(id);
-            return Created(token,token);
+            return Created(token, token);
         }
         [HttpGet("ValidarToken")]
         public ActionResult<TokenModels> ValidarToken([FromQuery] string token)
@@ -48,10 +48,10 @@ namespace ApiLoja.Controllers
             }
         }
         [HttpPost("CadastrarCandidato")]
-        public async Task<ActionResult<CandidatosModels>> CadastrarCandidatoAsync ([FromQuery]string token, [FromBody] CandidatosModels candidato)
+        public async Task<ActionResult<CandidatosModels>> CadastrarCandidatoAsync([FromQuery] string token, [FromBody] CandidatosModels candidato)
         {
             candidato.RG = candidato.RG.Replace(" ", "").Replace(".", "").Replace("-", "").Replace("/", "");
-            var quemIndica =  _tokenRepository.ValidarToken(token).QuemIndica;
+            var quemIndica = _tokenRepository.ValidarToken(token).QuemIndica;
             candidato.QuemIndica = quemIndica;
             var result = _candidatos.CadastrarCandidato(candidato);
             var resultToken = _tokenRepository.ValidarToken(token);
@@ -74,14 +74,15 @@ namespace ApiLoja.Controllers
             var result = _candidatos.VerCandidatos();
             if (result!=null)
             {
-                foreach(var candidato in result)
+                foreach (var candidato in result)
                 {
                     candidato.Status = _statusRepository.VerStatus(candidato.StatusId);
                     candidato.Familiares = _familias.VerFamiliaresCandidato(candidato.Id).ToList();
                 }
                 return Ok(result);
             }
-            else{
+            else
+            {
                 return BadRequest();
             }
         }
@@ -99,6 +100,18 @@ namespace ApiLoja.Controllers
             {
                 return NotFound();
             }
+        }
+        [HttpGet("FichaCandidato")]
+        public ActionResult<byte[]> FichaCandidato([FromQuery] int id, [FromQuery] int idade)
+        {
+            var result = _candidatos.VerCandidato(id);
+
+            result.Status = _statusRepository.VerStatus(result.StatusId);
+            result.Familiares = _familias.VerFamiliaresCandidato(result.Id).ToList();
+            var file = _candidatos.MontarFicha(result, idade);
+
+            return Ok(file);
+
         }
     }
 }

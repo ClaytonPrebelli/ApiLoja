@@ -7,5 +7,6 @@ namespace ApiLoja.Repositories.IRepositories
         CandidatosModels CadastrarCandidato(CandidatosModels candidato);
         IEnumerable<CandidatosModels> VerCandidatos();
         CandidatosModels VerCandidato(int id);
+        byte[] MontarFicha(CandidatosModels candidato, int idade);
     }
 }
