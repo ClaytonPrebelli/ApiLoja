@@ -67,6 +67,18 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "ceTe.DynamicPDF.CoreSuite.NET": {
+              "target": "Package",
+              "version": "[12.15.0, )"
+            },
+            "ceTe.DynamicPDF.HtmlConverter.NET": {
+              "target": "Package",
+              "version": "[1.16.0, )"
             }
           },
           "imports": [
@@ -79,20 +91,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-              "version": "[6.0.1, 6.0.1]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x86",
-              "version": "[6.0.1, 6.0.1]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-              "version": "[6.0.1, 6.0.1]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
