@@ -226,7 +226,7 @@ namespace ApiLoja.Controllers
         public ActionResult<byte[]> Carteirinha([FromQuery] int id)
         {
             var macom = _usuariosRepository.VerUsuario(id);
-            var loja = _lojasRepository.VerLoja(macom.Id);
+            var loja = _lojasRepository.VerLoja(macom.LojaId);
             var carteirinha = _usuariosRepository.GerarCarteirinha(macom,loja);
 
 
