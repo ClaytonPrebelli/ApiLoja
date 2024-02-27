@@ -23,6 +23,7 @@ namespace ApiLoja.Data
         public DbSet<FotosCandidatoModels> FotosCandidato { get; set; }
         public DbSet<CandidatosModels> Candidatos { get; set;}
         public DbSet<TokenModels> Token { get; set; }
+        public DbSet<LivrosModels> Livros { get; set; }
 
     }
 }
