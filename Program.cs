@@ -27,6 +27,7 @@ builder.Services.AddScoped<ILojasRepository,LojasRepository>();
 builder.Services.AddScoped<ICandidatosRepository, CandidatosRepository>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<IFamiliaresRepository, FamiliaresRepository>();
+builder.Services.AddScoped<ILivrosRepository, LivrosRepository>();
 //repository
 var app = builder.Build();
 
