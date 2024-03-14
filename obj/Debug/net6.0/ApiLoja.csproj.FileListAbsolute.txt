@@ -45,6 +45,8 @@ C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\ApiLoja.deps.jso
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\ApiLoja.runtimeconfig.json
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\ApiLoja.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\ApiLoja.pdb
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\DynamicPDF.CoreSuite.dll
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\DynamicPDF.HTMLConverter.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\EntityFramework.SqlServer.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\EntityFramework.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Humanizer.dll
@@ -55,6 +57,7 @@ C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Microsoft.Entity
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\MimeKit.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\MySqlConnector.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
@@ -62,6 +65,8 @@ C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\BouncyCastle.Cry
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\ApiLoja.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\ApiLoja.AssemblyInfoInputs.cache
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\ApiLoja.AssemblyInfo.cs
@@ -76,10 +81,10 @@ C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\ApiLoja.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\ref\ApiLoja.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\ApiLoja.pdb
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\ApiLoja.genruntimeconfig.cache
-C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\DynamicPDF.CoreSuite.dll
-C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\DynamicPDF.HTMLConverter.dll
-C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\ApiLoja.csproj.AssemblyReference.cache
-C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Debug\net6.0\ref\ApiLoja.dll
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\staticwebassets\msbuild.ApiLoja.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\staticwebassets\msbuild.build.ApiLoja.props
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ApiLoja.props
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ApiLoja.props
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Debug\net6.0\refint\ApiLoja.dll
