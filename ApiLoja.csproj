@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Canducci.Pagination" Version="3.0.0" />
     <PackageReference Include="ceTe.DynamicPDF.CoreSuite.NET" Version="12.15.0" />
     <PackageReference Include="ceTe.DynamicPDF.HtmlConverter.NET" Version="1.16.0" />
     <PackageReference Include="EntityFramework" Version="6.0.0" />

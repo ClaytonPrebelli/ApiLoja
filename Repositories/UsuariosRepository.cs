@@ -3,7 +3,9 @@ using ApiLoja.Models;
 using ApiLoja.Params;
 using ApiLoja.Repositories.IRepositories;
 using ApiLoja.Responses;
+using Canducci.Pagination;
 using ceTe.DynamicPDF.HtmlConverter;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Drawing;
 using System.Security.Cryptography;
@@ -66,22 +68,98 @@ namespace ApiLoja.Repositories
 
             return usuario;
         }
-        public IEnumerable<UsuarioModels> ListarUsuarios()
+        public  PaginatedRest<UsuarioModels> ListarUsuarios(int? page,int? loja, int? status,string? termo)
         {
-            var usuario = _dataContext.Usuario
-                .Include(x => x.Loja)
-                .Include(x => x.Status)
-                .Include(x => x.Foto)
-                .Include(x => x.Familiares)
-                .ToList();
+            page ??= 1;
+            if (loja==0)
+            {
+                loja = null;
+            }
+            if (status==0)
+            {
+                status = null;
+            }
+
+            if (page <= 0) page = 1;
+            Task<PaginatedRest<UsuarioModels>> usuario = null;
+            if (loja!=null && status==null && (string.IsNullOrEmpty(termo) || termo == "undefined"))
+            {
+                usuario = _dataContext.Usuario
+                .Where(x => x.LojaId == loja)
+              .Include(x => x.Loja)
+              .Include(x => x.Status)
+              .Include(x => x.Foto)
+              .Include(x => x.Familiares)
+
+              .ToPaginatedRestAsync(page.Value, 20);
+            }
+            else if (loja == null && status !=null && (string.IsNullOrEmpty(termo) || termo == "undefined"))
+            {
+                usuario =  _dataContext.Usuario
+                     .Where(x => x.StatusId == status)
+                   .Include(x => x.Loja)
+                   .Include(x => x.Status)
+                   .Include(x => x.Foto)
+                   .Include(x => x.Familiares)
+                   .ToPaginatedRestAsync(page.Value, 20);
+            }
+            else if(loja != null && status !=null && (string.IsNullOrEmpty(termo) ||  termo == "undefined"))
+            {
+                usuario =  _dataContext.Usuario
+                    .Where(x => x.StatusId == status && x.LojaId == loja)
+                  .Include(x => x.Loja)
+                  .Include(x => x.Status)
+                  .Include(x => x.Foto)
+                  .Include(x => x.Familiares)
+                  .ToPaginatedRestAsync(page.Value, 20);
+            }
+            else if (loja != null && status !=null && (!string.IsNullOrEmpty(termo) &&   termo != "undefined"))
+            {
+                usuario =  _dataContext.Usuario
+                   .Where(x => x.StatusId == status && x.LojaId == loja && x.Nome.Contains(termo))
+                 .Include(x => x.Loja)
+                 .Include(x => x.Status)
+                 .Include(x => x.Foto)
+                 .Include(x => x.Familiares)
+                 .ToPaginatedRestAsync(page.Value, 20);
+            }else if (loja == null && status !=null && (!string.IsNullOrEmpty(termo) &&   termo != "undefined"))
+            {
+                usuario =  _dataContext.Usuario
+                   .Where(x => x.StatusId == status && x.Nome.Contains(termo))
+                 .Include(x => x.Loja)
+                 .Include(x => x.Status)
+                 .Include(x => x.Foto)
+                 .Include(x => x.Familiares)
+                 .ToPaginatedRestAsync(page.Value, 20);
+            }else if(loja == null && status ==null && (!string.IsNullOrEmpty(termo)  && termo != "undefined"))
+            {
+                usuario =  _dataContext.Usuario
+                   .Where(x =>  x.Nome.Contains(termo))
+                 .Include(x => x.Loja)
+                 .Include(x => x.Status)
+                 .Include(x => x.Foto)
+                 .Include(x => x.Familiares)
+                 .ToPaginatedRestAsync(page.Value, 20);
+            }
+            else
+            {
+                usuario =  _dataContext.Usuario
+                 .Include(x => x.Loja)
+                 .Include(x => x.Status)
+                 .Include(x => x.Foto)
+                 .Include(x => x.Familiares)
+                 .ToPaginatedRestAsync(page.Value, 20);
+            }
+
+
             if (usuario == null)
             {
-                return Enumerable.Empty<UsuarioModels>();
+                return null;
 
             }
             else
             {
-                return usuario;
+                return usuario.Result;
             }
         }
         public UsuarioModels Login(LoginParams param)

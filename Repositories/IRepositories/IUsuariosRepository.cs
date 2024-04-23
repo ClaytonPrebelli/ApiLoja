@@ -1,6 +1,7 @@
 ﻿using ApiLoja.Models;
 using ApiLoja.Params;
 using ApiLoja.Responses;
+using Canducci.Pagination;
 
 namespace ApiLoja.Repositories.IRepositories
 {
@@ -9,7 +10,7 @@ namespace ApiLoja.Repositories.IRepositories
         UsuarioModels CadastrarUsuario(UsuarioModels usuario);
         int VerUltimoCim();
         UsuarioModels VerUsuario(int id);
-        IEnumerable<UsuarioModels> ListarUsuarios();
+        PaginatedRest<UsuarioModels> ListarUsuarios(int? page, int? loja, int? status, string? termo);
         UsuarioModels Login(LoginParams param);
         UsuarioModels VerficaAtivo(int id);
         UsuarioModels AtualizaUser(UsuarioModels usuario);

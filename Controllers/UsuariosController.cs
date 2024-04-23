@@ -68,10 +68,10 @@ namespace ApiLoja.Controllers
             }
         }
         [HttpGet("ListarUsuarios")]
-        public ActionResult<IEnumerable<UsuarioModels>> ListarUsuarios()
+        public ActionResult<IEnumerable<UsuarioModels>> ListarUsuarios([FromQuery]int page, [FromQuery] int?loja,[FromQuery] int?status,[FromQuery] string?termo)
         {
-            var usuarios = _usuariosRepository.ListarUsuarios();
-            if (usuarios.Any())
+            var usuarios = _usuariosRepository.ListarUsuarios(page,loja,status,termo);
+            if (usuarios.Items.Any())
             {
                 return Ok(usuarios);
             }
