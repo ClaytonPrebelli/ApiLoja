@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "v2aUpo0ZRMS3CRFPX+FHxPqL9wRwh65v7wtNxkyT/i5X/IppY117WZVKhMDcvxilfA/qfmHg8OIkrzlAu7hP7A==",
+  "dgSpecHash": "uEG3Ob+uQEp6eB/UiwmfipLLXuAfp07eMXskdZoOj+1p/x4SZ2AgChWPQvxnEdppJ9EAFXseYz+EGphHu3u0Fw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ACT\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ACT\\.nuget\\packages\\canducci.pagination\\3.0.0\\canducci.pagination.3.0.0.nupkg.sha512",
     "C:\\Users\\ACT\\.nuget\\packages\\cete.dynamicpdf.coresuite.net\\12.15.0\\cete.dynamicpdf.coresuite.net.12.15.0.nupkg.sha512",
     "C:\\Users\\ACT\\.nuget\\packages\\cete.dynamicpdf.htmlconverter.net\\1.16.0\\cete.dynamicpdf.htmlconverter.net.1.16.0.nupkg.sha512",
     "C:\\Users\\ACT\\.nuget\\packages\\entityframework\\6.0.0\\entityframework.6.0.0.nupkg.sha512",

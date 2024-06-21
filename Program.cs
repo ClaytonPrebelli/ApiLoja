@@ -17,7 +17,7 @@ builder.Services.AddCors(o => o.AddPolicy("Politica", builder =>
    .AllowAnyOrigin()
    .DisallowCredentials();
 }));
-string stringConexao = "Server=mysql.prebellisolucoes.com;Database=prebellisoluco08;Uid=prebellisoluco08;Pwd=Gadu1708;charset=utf8";
+string stringConexao = "Server=158.69.19.64;Database=prebelli_loja;Uid=prebelli;Pwd=Gadu@1708;charset=utf8";
 builder.Services.AddDbContext<DataContext>(opt => opt.UseMySql(stringConexao, ServerVersion.AutoDetect(stringConexao)));
 builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();

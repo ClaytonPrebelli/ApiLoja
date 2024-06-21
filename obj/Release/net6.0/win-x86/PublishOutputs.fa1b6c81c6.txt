@@ -4,6 +4,7 @@ C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\win-x86\PubTmp
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\win-x86\PubTmp\Out\ApiLoja.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\win-x86\PubTmp\Out\ApiLoja.runtimeconfig.json
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\win-x86\PubTmp\Out\ApiLoja.pdb
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\win-x86\PubTmp\Out\Canducci.Pagination.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\win-x86\PubTmp\Out\DynamicPDF.CoreSuite.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\win-x86\PubTmp\Out\DynamicPDF.HTMLConverter.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\obj\Release\net6.0\win-x86\PubTmp\Out\EntityFramework.SqlServer.dll

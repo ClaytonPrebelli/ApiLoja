@@ -9,6 +9,7 @@
     ".NETCoreApp,Version=v6.0/win-x86": {
       "ApiLoja/1.0.0": {
         "dependencies": {
+          "Canducci.Pagination": "3.0.0",
           "EntityFramework": "6.0.0",
           "MailkitTools": "1.1.2",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
@@ -20,6 +21,14 @@
         },
         "runtime": {
           "ApiLoja.dll": {}
+        }
+      },
+      "Canducci.Pagination/3.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/Canducci.Pagination.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
         }
       },
       "ceTe.DynamicPDF.CoreSuite.NET/12.15.0": {
@@ -1276,6 +1285,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Canducci.Pagination/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LyA03M+lB1VOPRW/dXOzNdw8TQA5E/zGxDUYnYVyiVNSU5OOnadqzAUWKXkcoy6wWG3wM1QPXK2JRLw/VHYpWg==",
+      "path": "canducci.pagination/3.0.0",
+      "hashPath": "canducci.pagination.3.0.0.nupkg.sha512"
     },
     "ceTe.DynamicPDF.CoreSuite.NET/12.15.0": {
       "type": "package",

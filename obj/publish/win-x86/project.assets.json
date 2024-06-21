@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Canducci.Pagination/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Canducci.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Canducci.Pagination.dll": {}
+        }
+      },
       "ceTe.DynamicPDF.CoreSuite.NET/12.15.0": {
         "type": "package",
         "dependencies": {
@@ -1956,6 +1965,15 @@
       }
     },
     "net6.0/win-x86": {
+      "Canducci.Pagination/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Canducci.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Canducci.Pagination.dll": {}
+        }
+      },
       "ceTe.DynamicPDF.CoreSuite.NET/12.15.0": {
         "type": "package",
         "dependencies": {
@@ -4036,6 +4054,22 @@
     }
   },
   "libraries": {
+    "Canducci.Pagination/3.0.0": {
+      "sha512": "LyA03M+lB1VOPRW/dXOzNdw8TQA5E/zGxDUYnYVyiVNSU5OOnadqzAUWKXkcoy6wWG3wM1QPXK2JRLw/VHYpWg==",
+      "type": "package",
+      "path": "canducci.pagination/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "canducci.pagination.3.0.0.nupkg.sha512",
+        "canducci.pagination.nuspec",
+        "ico.png",
+        "lib/net461/Canducci.Pagination.dll",
+        "lib/netstandard1.6/Canducci.Pagination.dll",
+        "lib/netstandard2.0/Canducci.Pagination.dll",
+        "lib/netstandard2.1/Canducci.Pagination.dll"
+      ]
+    },
     "ceTe.DynamicPDF.CoreSuite.NET/12.15.0": {
       "sha512": "Fq17hpv8mnfz7OkdciLo1+G2BG7Y+eoKhUQscudsYr3F9OhjInxSUxtZi6tLvRguov3NRi5pwonYGTX7yoQtHg==",
       "type": "package",
@@ -9361,6 +9395,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Canducci.Pagination >= 3.0.0",
       "EntityFramework >= 6.0.0",
       "MailkitTools >= 1.1.2",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
@@ -9418,6 +9453,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Canducci.Pagination": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "EntityFramework": {
             "target": "Package",
             "version": "[6.0.0, )"

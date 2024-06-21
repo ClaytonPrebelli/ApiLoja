@@ -39,3 +39,4 @@ C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Release\net6.0\win-x86\Dynami
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Release\net6.0\win-x86\DynamicPDF.HTMLConverter.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Release\net6.0\win-x86\Microsoft.Win32.SystemEvents.dll
 C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Release\net6.0\win-x86\System.Drawing.Common.dll
+C:\Users\ACT\Documents\projetosEstudo\APiGlumb\bin\Release\net6.0\win-x86\Canducci.Pagination.dll
