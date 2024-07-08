@@ -29,7 +29,7 @@ namespace ApiLoja.Controllers
                 var file = Request.Form.Files[0];
                 var folderName = Path.Combine("Documentos", id.ToString());
                 var pathAtual =  Directory.GetParent(Directory.GetCurrentDirectory());
-                var pathToSave = Path.Combine(pathAtual.ToString(),folderName);
+                var pathToSave = Path.Combine(pathAtual.ToString()+"/httpdocs",folderName);
                 if (Directory.Exists(pathToSave))
                 {
                     if (file.Length > 0)
@@ -79,7 +79,7 @@ namespace ApiLoja.Controllers
         {
             var folderName = Path.Combine("Documentos", id.ToString());
             var pathAtual = Directory.GetParent(Directory.GetCurrentDirectory());
-            var pathFiles = Path.Combine(pathAtual.ToString(), folderName);
+            var pathFiles = Path.Combine(pathAtual.ToString()+"/httpdocs", folderName);
             var arquivos = new List<ArquivosResponse>();
             if (Directory.Exists(pathFiles))
             {
