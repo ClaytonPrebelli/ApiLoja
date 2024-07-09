@@ -16,7 +16,7 @@ namespace ApiLoja.Responses
         public bool Ativa { get; set; }
         public string? Instagram { get; set; }
         public virtual ICollection<DocumentosModels> Documentos { get; set; }
-        public virtual FotosLojasModels? Fotos { get; set; }
+        
         public  string? VeneravelNome { get; set; }
         public string? VeneravelTelefone { get; set; }
     }

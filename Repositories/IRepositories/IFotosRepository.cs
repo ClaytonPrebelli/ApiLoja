@@ -5,11 +5,11 @@ namespace ApiLoja.Repositories.IRepositories
     public interface IFotosRepository
     {
       
-        string CadastrarFotosUser(FotosModels foto);
-        string CadastrarFotosLojas(FotosLojasModels foto);
+        //string CadastrarFotosUser(FotosModels foto);
+        //string CadastrarFotosLojas(FotosLojasModels foto);
         ICollection<FotosNoticiaModels> VerFotoNoticia(int id);
         string CadastrarFotosNoticias(FotosNoticiaModels foto);
-        ICollection<FotosLojasModels> VerFotoLoja(int id);
-        FotosModels VerFotoUser(int id);
+        //ICollection<FotosLojasModels> VerFotoLoja(int id);
+        //FotosModels VerFotoUser(int id);
     }
 }

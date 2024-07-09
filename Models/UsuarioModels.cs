@@ -45,8 +45,6 @@ namespace ApiLoja.Models
         public string? Titulo { get; set; }
         public int StatusId { get; set; }
         public int LojaId { get; set; }
-        public int? FotoId { get; set; }
-        public virtual FotosModels Foto { get; set; }
         public virtual StatusModels Status { get; set; }
         public virtual LojaModels Loja { get; set; }
         public virtual ICollection<FamiliaresModels> Familiares { get; set; }

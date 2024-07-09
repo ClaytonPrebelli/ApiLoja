@@ -39,11 +39,11 @@ namespace ApiLoja.Repositories
             }
             else
             {
-                var foto = _fotos.VerFotoLoja(loja.Id).ToList();
-                if (foto.Any())
-                {
-                    loja.Fotos = foto[0];
-                }
+                //var foto = _fotos.VerFotoLoja(loja.Id).ToList();
+                //if (foto.Any())
+                //{
+                //    loja.Fotos = foto[0];
+                //}
                 return loja;
             }
         }
@@ -67,11 +67,11 @@ namespace ApiLoja.Repositories
                 dadosLoja.Oriente = loja.Oriente;
                 dadosLoja.Instagram = loja.Instagram;
                 
-                var foto = _fotos.VerFotoLoja(loja.Id).ToList();
-                if (foto.Any())
-                {
-                    dadosLoja.Fotos = foto[0];
-                }
+                //var foto = _fotos.VerFotoLoja(loja.Id).ToList();
+                //if (foto.Any())
+                //{
+                //    dadosLoja.Fotos = foto[0];
+                //}
                 var veneravel = _usuariosRepository.VerUsuario(loja.Veneravel);
                 if (veneravel!=null)
                 {
@@ -86,14 +86,14 @@ namespace ApiLoja.Repositories
         public IEnumerable<LojaModels> VerLojas()
         {
             var lojas = _dataContext.Lojas.ToList();
-            foreach (var loja in lojas)
-            {
-                var foto = _fotos.VerFotoLoja(loja.Id).ToList();
-                if (foto.Any())
-                {
-                    loja.Fotos = foto[0];
-                }
-            }
+            //foreach (var loja in lojas)
+            //{
+            //    var foto = _fotos.VerFotoLoja(loja.Id).ToList();
+            //    if (foto.Any())
+            //    {
+            //        loja.Fotos = foto[0];
+            //    }
+            //}
             return lojas;
         }
     }

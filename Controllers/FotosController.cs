@@ -31,7 +31,7 @@ namespace ApiLoja.Controllers
         }
 
         [HttpPost("GravarFotoUser")]
-        public async Task<ActionResult<FotosModels>> GravarFotoUser(IFormFile file,[FromQuery] int id)
+        public async Task<ActionResult> GravarFotoUser(IFormFile file,[FromQuery] int id)
         {
             byte[] bytes;
 
@@ -41,21 +41,12 @@ namespace ApiLoja.Controllers
                 bytes = ms.ToArray();
             }
             var user = _usuariosRepository.VerUsuario(id);
-            var foto = new FotosModels
-            {
-                FotoFile = bytes,
-                FotoName = user.Nome,
-                Id=0,
-                UsuarioId= id
-            };
-            _dataContext.Fotos.Add(foto);
-            await _dataContext.SaveChangesAsync();
-            user.FotoId=foto.Id;
-            _usuariosRepository.AtualizaUser(user);
+          //inserir logica de gravar foto user
+      
             return Ok();
         }
         [HttpPost("GravarFotoLojas")]
-        public async Task<ActionResult<FotosLojasModels>> GravarFotoLojas(IFormFile file, [FromQuery] int id)
+        public async Task<ActionResult> GravarFotoLojas(IFormFile file, [FromQuery] int id)
         {
             byte[] bytes;
 
@@ -65,15 +56,7 @@ namespace ApiLoja.Controllers
                 bytes = ms.ToArray();
             }
             var loja = _lojasRepository.VerLoja(id);
-            var foto = new FotosLojasModels
-            {
-                FotoFile = bytes,
-                FotoName = loja.NomeLoja,
-                Id=0,
-                LojasId = loja.Id
-            };
-            _dataContext.FotosLojas.Add(foto);
-            await _dataContext.SaveChangesAsync();
+            //inserir logica de gravar foto loja
 
             return Ok();
         }
@@ -101,33 +84,6 @@ namespace ApiLoja.Controllers
             return Ok();
         }
         
-        [HttpGet("VerFotoUser")]
-        public async Task<ActionResult> VerFotoUser([FromQuery]int idFoto)
-        {
-            var foto = _fotosRepository.VerFotoUser(idFoto);
-            if(foto == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(foto);
-            }
-        }
-
-        [HttpGet("VerFotoLoja")]
-        public async Task<ActionResult> VerFotoLoja([FromQuery] int lojaId)
-        {
-            var foto = _fotosRepository.VerFotoLoja(lojaId).FirstOrDefault();
-            if (foto == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(foto);
-            }
-        }
 
     }
 }

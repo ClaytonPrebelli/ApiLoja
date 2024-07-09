@@ -3,6 +3,7 @@ using System;
 using ApiLoja.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiLoja.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240709223550_FotoLoja")]
+    partial class FotoLoja
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -326,6 +328,28 @@ namespace ApiLoja.Migrations
                     b.ToTable("FotosCandidato");
                 });
 
+            modelBuilder.Entity("ApiLoja.Models.FotosModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("FotoFile")
+                        .IsRequired()
+                        .HasColumnType("longblob");
+
+                    b.Property<string>("FotoName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fotos");
+                });
+
             modelBuilder.Entity("ApiLoja.Models.FotosNoticiaModels", b =>
                 {
                     b.Property<int>("Id")
@@ -559,6 +583,9 @@ namespace ApiLoja.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("FotoId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("Iniciacao")
                         .HasColumnType("datetime(6)");
 
@@ -635,6 +662,8 @@ namespace ApiLoja.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FotoId");
 
                     b.HasIndex("LojaId");
 
@@ -715,6 +744,10 @@ namespace ApiLoja.Migrations
 
             modelBuilder.Entity("ApiLoja.Models.UsuarioModels", b =>
                 {
+                    b.HasOne("ApiLoja.Models.FotosModels", "Foto")
+                        .WithMany()
+                        .HasForeignKey("FotoId");
+
                     b.HasOne("ApiLoja.Models.LojaModels", "Loja")
                         .WithMany()
                         .HasForeignKey("LojaId")
@@ -726,6 +759,8 @@ namespace ApiLoja.Migrations
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Foto");
 
                     b.Navigation("Loja");
 

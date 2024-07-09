@@ -108,7 +108,7 @@ namespace ApiLoja.Controllers
                     response.Id = usuario.Id;
                     response.LojaId = usuario.LojaId;
                     response.Titulo = usuario.Titulo;
-                    response.Foto = usuario.Foto!=null ? usuario.Foto.FotoFile : null;
+                   
                     return Ok(response);
                 }
             }
