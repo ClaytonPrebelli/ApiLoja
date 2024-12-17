@@ -5,9 +5,11 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>ftp://158.69.19.64/apiloja</_PublishTargetUrl>
-    <History>True|2024-07-09T23:48:32.4585155Z||;True|2024-07-09T03:18:52.8143658-03:00||;False|2024-07-09T03:15:01.8653808-03:00||;</History>
+    <_PublishTargetUrl>ftp://158.69.19.64/apiloja.glumbsp.com.br</_PublishTargetUrl>
+    <History>True|2024-12-17T19:58:41.7926042Z||;False|2024-12-17T16:48:50.1995620-03:00||;True|2024-09-10T14:46:25.0614613-03:00||;True|2024-07-09T20:48:32.4585155-03:00||;True|2024-07-09T03:18:52.8143658-03:00||;False|2024-07-09T03:15:01.8653808-03:00||;</History>
     <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAydl4EyibD0eKg6bS7yDHiAAAAAACAAAAAAAQZgAAAAEAACAAAABFlT+TpNktRa/K5bhiMVVuY2CnnlVHu1iclrmoLe0/swAAAAAOgAAAAAIAACAAAAC16jdr6xSi7b9G2lHs2AQnvQ+x/4ty4PFW7U5fgwSWYiAAAAAeu5tBhOYVj6QJaW3fV1BMkxfR+/tGBZKazhiLRPWjnUAAAACJYp6+6Lwqg0KTTweyPW/kiYRmQBI40lEX2ZQ8JVApPeHFYSmrbI0XWd9NNZBbHpBvFcKgQfesfx/UA5zRl2NI</EncryptedPassword>
   </PropertyGroup>
   <ItemGroup>
     <File Include="apikaraoke.deps.json">
@@ -26,19 +28,19 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/09/2024 03:14:54</publishTime>
     </File>
     <File Include="ApiLoja.deps.json">
-      <publishTime>07/09/2024 20:46:39</publishTime>
+      <publishTime>12/17/2024 16:49:06</publishTime>
     </File>
     <File Include="ApiLoja.dll">
-      <publishTime>07/09/2024 20:46:38</publishTime>
+      <publishTime>12/17/2024 16:49:03</publishTime>
     </File>
     <File Include="ApiLoja.exe">
-      <publishTime>07/09/2024 20:46:38</publishTime>
+      <publishTime>12/17/2024 16:49:04</publishTime>
     </File>
     <File Include="ApiLoja.pdb">
-      <publishTime>07/09/2024 20:46:38</publishTime>
+      <publishTime>12/17/2024 16:49:03</publishTime>
     </File>
     <File Include="ApiLoja.runtimeconfig.json">
-      <publishTime>07/09/2024 20:46:39</publishTime>
+      <publishTime>09/10/2024 14:44:45</publishTime>
     </File>
     <File Include="appsettings.Development.json">
       <publishTime>07/09/2024 18:44:17</publishTime>
@@ -116,7 +118,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>01/18/2024 14:34:14</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>07/09/2024 20:46:39</publishTime>
+      <publishTime>12/17/2024 16:49:06</publishTime>
     </File>
   </ItemGroup>
 </Project>
