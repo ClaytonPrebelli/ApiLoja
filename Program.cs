@@ -11,10 +11,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(o => o.AddPolicy("Politica", builder =>
 {
-    builder.AllowAnyOrigin()
+    builder
+   // .AllowAnyOrigin()
    .AllowAnyMethod()
    .AllowAnyHeader()
-   .AllowAnyOrigin()
    .DisallowCredentials();
 }));
 string stringConexao = "Server=158.69.19.64;Database=prebelli_loja;Uid=prebelli;Pwd=Gadu@1708;charset=utf8";

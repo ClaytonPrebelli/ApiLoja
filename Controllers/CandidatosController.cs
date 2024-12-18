@@ -104,13 +104,20 @@ namespace ApiLoja.Controllers
         [HttpGet("FichaCandidato")]
         public ActionResult<byte[]> FichaCandidato([FromQuery] int id, [FromQuery] int idade)
         {
-            var result = _candidatos.VerCandidato(id);
+            try
+            {
+                var result = _candidatos.VerCandidato(id);
 
-            result.Status = _statusRepository.VerStatus(result.StatusId);
-            result.Familiares = _familias.VerFamiliaresCandidato(result.Id).ToList();
-            var file = _candidatos.MontarFicha(result, idade);
+                result.Status = _statusRepository.VerStatus(result.StatusId);
+                result.Familiares = _familias.VerFamiliaresCandidato(result.Id).ToList();
+                var file = _candidatos.MontarFicha(result, idade);
 
-            return Ok(file);
+                return Ok(file);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
         }
     }

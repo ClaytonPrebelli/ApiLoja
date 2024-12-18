@@ -6,7 +6,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>ftp://158.69.19.64/apiloja.glumbsp.com.br</_PublishTargetUrl>
-    <History>True|2024-12-17T19:58:41.7926042Z||;False|2024-12-17T16:48:50.1995620-03:00||;True|2024-09-10T14:46:25.0614613-03:00||;True|2024-07-09T20:48:32.4585155-03:00||;True|2024-07-09T03:18:52.8143658-03:00||;False|2024-07-09T03:15:01.8653808-03:00||;</History>
+    <History>False|2024-12-18T14:03:57.2932890Z||;False|2024-12-18T10:48:59.0059522-03:00||;False|2024-12-18T10:21:37.6147629-03:00||;False|2024-12-18T09:27:40.6924803-03:00||;True|2024-12-18T09:03:38.9089785-03:00||;False|2024-12-18T08:43:55.1248834-03:00||;True|2024-12-18T00:49:27.4264593-03:00||;True|2024-12-18T00:39:59.2520390-03:00||;True|2024-12-17T16:58:41.7926042-03:00||;False|2024-12-17T16:48:50.1995620-03:00||;True|2024-09-10T14:46:25.0614613-03:00||;True|2024-07-09T20:48:32.4585155-03:00||;True|2024-07-09T03:18:52.8143658-03:00||;False|2024-07-09T03:15:01.8653808-03:00||;</History>
     <LastFailureDetails />
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAydl4EyibD0eKg6bS7yDHiAAAAAACAAAAAAAQZgAAAAEAACAAAABFlT+TpNktRa/K5bhiMVVuY2CnnlVHu1iclrmoLe0/swAAAAAOgAAAAAIAACAAAAC16jdr6xSi7b9G2lHs2AQnvQ+x/4ty4PFW7U5fgwSWYiAAAAAeu5tBhOYVj6QJaW3fV1BMkxfR+/tGBZKazhiLRPWjnUAAAACJYp6+6Lwqg0KTTweyPW/kiYRmQBI40lEX2ZQ8JVApPeHFYSmrbI0XWd9NNZBbHpBvFcKgQfesfx/UA5zRl2NI</EncryptedPassword>
@@ -28,16 +28,16 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/09/2024 03:14:54</publishTime>
     </File>
     <File Include="ApiLoja.deps.json">
-      <publishTime>12/17/2024 16:49:06</publishTime>
+      <publishTime>12/18/2024 10:52:33</publishTime>
     </File>
     <File Include="ApiLoja.dll">
-      <publishTime>12/17/2024 16:49:03</publishTime>
+      <publishTime>12/18/2024 10:52:32</publishTime>
     </File>
     <File Include="ApiLoja.exe">
-      <publishTime>12/17/2024 16:49:04</publishTime>
+      <publishTime>12/18/2024 10:52:32</publishTime>
     </File>
     <File Include="ApiLoja.pdb">
-      <publishTime>12/17/2024 16:49:03</publishTime>
+      <publishTime>12/18/2024 10:52:32</publishTime>
     </File>
     <File Include="ApiLoja.runtimeconfig.json">
       <publishTime>09/10/2024 14:44:45</publishTime>
@@ -58,7 +58,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>02/22/2024 03:09:58</publishTime>
     </File>
     <File Include="DynamicPDF.HTMLConverter.dll">
-      <publishTime>01/23/2024 01:58:24</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="EntityFramework.dll">
       <publishTime>09/11/2013 06:10:04</publishTime>
@@ -73,10 +73,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>12/12/2021 12:03:06</publishTime>
     </File>
     <File Include="Microsoft.AspNet.Identity.Core.dll">
-      <publishTime>11/25/2019 07:57:50</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Microsoft.AspNet.Identity.EntityFramework.dll">
-      <publishTime>11/25/2019 07:57:50</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
       <publishTime>10/23/2021 15:35:34</publishTime>
@@ -100,7 +100,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>11/09/2021 13:05:54</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
-      <publishTime>03/17/2021 17:03:36</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Pomelo.EntityFrameworkCore.MySql.dll">
       <publishTime>11/09/2021 19:16:32</publishTime>
@@ -118,7 +118,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>01/18/2024 14:34:14</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>12/17/2024 16:49:06</publishTime>
+      <publishTime>12/18/2024 10:52:33</publishTime>
     </File>
   </ItemGroup>
 </Project>
