@@ -12,7 +12,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(o => o.AddPolicy("Politica", builder =>
 {
     builder
-   // .AllowAnyOrigin()
+    .AllowAnyOrigin()
    .AllowAnyMethod()
    .AllowAnyHeader()
    .DisallowCredentials();

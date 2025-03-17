@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiLoja")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c25b06aeb0f74f331643f1305bf99a230dace60")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33bfd12728bb7cc98ac3f5ac2b2bba9c25791457")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiLoja")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiLoja")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
