@@ -17,26 +17,24 @@ builder.Services.AddCors(o => o.AddPolicy("Politica", builder =>
    .AllowAnyHeader()
    .DisallowCredentials();
 }));
-string stringConexao = "Server=158.69.19.64;Database=prebelli_loja;Uid=prebelli;Pwd=Gadu@1708;charset=utf8";
+string stringConexao = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(opt => opt.UseMySql(stringConexao, ServerVersion.AutoDetect(stringConexao)));
 builder.Services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<IFotosRepository, FotosRepository>();
 builder.Services.AddScoped<INoticiasRepository, NoticiasRepositoy>();
-builder.Services.AddScoped<ILojasRepository,LojasRepository>();
 builder.Services.AddScoped<ICandidatosRepository, CandidatosRepository>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<IFamiliaresRepository, FamiliaresRepository>();
 builder.Services.AddScoped<ILivrosRepository, LivrosRepository>();
+builder.Services.AddScoped<IFrequenciaRepository, FrequenciaRepository>();
+builder.Services.AddScoped<IFinanceiroRepository, FinanceiroRepository>();
+builder.Services.AddScoped<ICobrancasRepository, CobrancasRepository>();
+builder.Services.AddScoped<IComunicadosRepository, ComunicadosRepository>();
 //repository
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 app.UseRouting();
 app.UseSwagger();
 app.UseSwaggerUI();

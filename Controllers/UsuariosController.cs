@@ -1,5 +1,4 @@
-﻿using ApiLoja.Data;
-using ApiLoja.Models;
+﻿using ApiLoja.Models;
 using ApiLoja.Params;
 using ApiLoja.Repositories.IRepositories;
 using ApiLoja.Responses;
@@ -22,15 +21,11 @@ namespace ApiLoja.Controllers
 
         private readonly IUsuariosRepository _usuariosRepository;
         private readonly IFamiliaresRepository _familiaresRepository;
-        private readonly ILojasRepository _lojasRepository;
-        private readonly DataContext _dataContext;
 
-        public UsuariosController(DataContext dataContext, IUsuariosRepository usuariosRepository, IFamiliaresRepository familiaresRepository, ILojasRepository lojasRepository)
+        public UsuariosController(IUsuariosRepository usuariosRepository, IFamiliaresRepository familiaresRepository)
         {
-            _dataContext = dataContext;
             _usuariosRepository = usuariosRepository;
             _familiaresRepository = familiaresRepository;
-            _lojasRepository = lojasRepository;
 
         }
 
@@ -68,9 +63,9 @@ namespace ApiLoja.Controllers
             }
         }
         [HttpGet("ListarUsuarios")]
-        public ActionResult<IEnumerable<UsuarioModels>> ListarUsuarios([FromQuery]int page, [FromQuery] int?loja,[FromQuery] int?status,[FromQuery] string?termo)
+        public async Task<ActionResult<IEnumerable<UsuarioModels>>> ListarUsuarios([FromQuery]int page, [FromQuery] int?status,[FromQuery] string?termo)
         {
-            var usuarios = _usuariosRepository.ListarUsuarios(page,loja,status,termo);
+            var usuarios = await _usuariosRepository.ListarUsuarios(page,status,termo);
             if (usuarios.Items.Any())
             {
                 return Ok(usuarios);
@@ -106,15 +101,13 @@ namespace ApiLoja.Controllers
                     response.Nome = usuario.Nome;
                     response.isActive = usuario.StatusId==1 ? true : false;
                     response.Id = usuario.Id;
-                    response.LojaId = usuario.LojaId;
-                    response.Titulo = usuario.Titulo;
                    
                     return Ok(response);
                 }
             }
         }
         [HttpGet("VerStatus")]
-        public async Task<ActionResult> VerStatus()
+        public ActionResult VerStatus()
         {
             var status = _usuariosRepository.VerStatus();
             if (status == null)
@@ -127,7 +120,7 @@ namespace ApiLoja.Controllers
             }
         }
         [HttpGet("VerUsuario")]
-        public async Task<ActionResult> VerUsuario([FromQuery] int id)
+        public ActionResult VerUsuario([FromQuery] int id)
         {
             var usuario = _usuariosRepository.VerUsuario(id);
             if (usuario == null)
@@ -226,8 +219,7 @@ namespace ApiLoja.Controllers
         public ActionResult<byte[]> Carteirinha([FromQuery] int id)
         {
             var macom = _usuariosRepository.VerUsuario(id);
-            var loja = _lojasRepository.VerLoja(macom.LojaId);
-            var carteirinha = _usuariosRepository.GerarCarteirinha(macom,loja);
+            var carteirinha = _usuariosRepository.GerarCarteirinha(macom);
 
 
             return Ok(carteirinha);

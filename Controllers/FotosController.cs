@@ -12,7 +12,6 @@ namespace ApiLoja.Controllers
     public class FotosController:ControllerBase
     {
         private readonly IUsuariosRepository _usuariosRepository;
-        private readonly ILojasRepository _lojasRepository;
         private readonly DataContext _dataContext;
         public readonly IFotosRepository _fotosRepository;
         public readonly INoticiasRepository _noticiasRepository;
@@ -20,13 +19,11 @@ namespace ApiLoja.Controllers
             DataContext dataContext,
             IUsuariosRepository usuariosRepository, 
             IFotosRepository fotosRepository, 
-            ILojasRepository lojasRepository,
             INoticiasRepository noticiasRepository)
         {
             _dataContext = dataContext;
             _fotosRepository = fotosRepository;
             _usuariosRepository = usuariosRepository;
-            _lojasRepository = lojasRepository;
             _noticiasRepository = noticiasRepository;
         }
 
@@ -55,7 +52,6 @@ namespace ApiLoja.Controllers
                 file.CopyToAsync(ms);
                 bytes = ms.ToArray();
             }
-            var loja = _lojasRepository.VerLoja(id);
             //inserir logica de gravar foto loja
 
             return Ok();

@@ -12,8 +12,6 @@ namespace ApiLoja.Responses
         public bool isMestre { get; set; }
         public bool isAdmin { get; set; }
         public bool isActive { get; set; }
-        public int LojaId { get; set; }
-        public string? Titulo { get; set; }
       
     }
 }

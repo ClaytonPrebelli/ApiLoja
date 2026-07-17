@@ -6,6 +6,6 @@
         public string Parentesco { get; set; }
         public DateTime Data { get; set; }
         public string Irmao { get; set; }
-        public string Loja { get; set; }
+        public string Loja { get; set; } = "Cavaleiros de Salomão 7106";
     }
 }

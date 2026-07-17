@@ -10,14 +10,14 @@ namespace ApiLoja.Repositories.IRepositories
         UsuarioModels CadastrarUsuario(UsuarioModels usuario);
         int VerUltimoCim();
         UsuarioModels VerUsuario(int id);
-        PaginatedRest<UsuarioModels> ListarUsuarios(int? page, int? loja, int? status, string? termo);
+        Task<PaginatedRest<UsuarioModels>> ListarUsuarios(int? page, int? status, string? termo);
         UsuarioModels Login(LoginParams param);
         UsuarioModels VerficaAtivo(int id);
         UsuarioModels AtualizaUser(UsuarioModels usuario);
         IEnumerable<StatusModels> VerStatus();
         FamiliaresModels CadastrarFamiliar(FamiliaresModels familiar);
         List<UsuarioModels> VerAniversarios();
-        byte[] GerarCarteirinha(UsuarioModels macom, LojaModels loja);
+        byte[] GerarCarteirinha(UsuarioModels macom);
 
 
     }

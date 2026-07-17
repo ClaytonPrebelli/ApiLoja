@@ -54,10 +54,9 @@ namespace ApiLoja.Repositories
         }
         public UsuarioModels VerUsuario(int id)
         {
-            var usuario = _dataContext.Usuario
-                .Include(x => x.Loja)
+            var usuario = _dataContext.Usuario.AsNoTracking()
                 .Include(x => x.Status)
-                .Include(x => x.Cobrancas)
+                .Include(x => x.Cargo)
                 .Include(x => x.Familiares)
                 .FirstOrDefault(x => x.Id == id);
             if (usuario == null)
@@ -67,13 +66,9 @@ namespace ApiLoja.Repositories
 
             return usuario;
         }
-        public  PaginatedRest<UsuarioModels> ListarUsuarios(int? page,int? loja, int? status,string? termo)
+        public async Task<PaginatedRest<UsuarioModels>> ListarUsuarios(int? page, int? status,string? termo)
         {
             page ??= 1;
-            if (loja==0)
-            {
-                loja = null;
-            }
             if (status==0)
             {
                 status = null;
@@ -81,72 +76,37 @@ namespace ApiLoja.Repositories
 
             if (page <= 0) page = 1;
             Task<PaginatedRest<UsuarioModels>> usuario = null;
-            if (loja!=null && status==null && (string.IsNullOrEmpty(termo) || termo == "undefined"))
+            if (status!=null && (string.IsNullOrEmpty(termo) || termo == "undefined"))
             {
-                usuario = _dataContext.Usuario
-                .Where(x => x.LojaId == loja)
-              .Include(x => x.Loja)
-              .Include(x => x.Status)
-              .Include(x => x.Familiares)
-              .OrderBy(x => x.Id)
-              .ToPaginatedRestAsync(page.Value, 60);
-              
-              ;
-            }
-            else if (loja == null && status !=null && (string.IsNullOrEmpty(termo) || termo == "undefined"))
-            {
-                usuario =  _dataContext.Usuario
+                usuario = _dataContext.Usuario.AsNoTracking()
                      .Where(x => x.StatusId == status)
-                   .Include(x => x.Loja)
                    .Include(x => x.Status)
-                   .Include(x => x.Familiares)
+                   .Include(x => x.Cargo)
                     .OrderBy(x => x.Id)
                    .ToPaginatedRestAsync(page.Value, 60);
             }
-            else if(loja != null && status !=null && (string.IsNullOrEmpty(termo) ||  termo == "undefined"))
+            else if (status !=null && (!string.IsNullOrEmpty(termo) &&   termo != "undefined"))
             {
-                usuario =  _dataContext.Usuario
-                    .Where(x => x.StatusId == status && x.LojaId == loja)
-                  .Include(x => x.Loja)
-                  .Include(x => x.Status)
-                  .Include(x => x.Familiares)
-                   .OrderBy(x => x.Id)
-                  .ToPaginatedRestAsync(page.Value, 60);
-            }
-            else if (loja != null && status !=null && (!string.IsNullOrEmpty(termo) &&   termo != "undefined"))
-            {
-                usuario =  _dataContext.Usuario
-                   .Where(x => x.StatusId == status && x.LojaId == loja && x.Nome.Contains(termo))
-                 .Include(x => x.Loja)
-                 .Include(x => x.Status)
-                 .Include(x => x.Familiares)
-                  .OrderBy(x => x.Id)
-                 .ToPaginatedRestAsync(page.Value, 60);
-            }else if (loja == null && status !=null && (!string.IsNullOrEmpty(termo) &&   termo != "undefined"))
-            {
-                usuario =  _dataContext.Usuario
+                usuario =  _dataContext.Usuario.AsNoTracking()
                    .Where(x => x.StatusId == status && x.Nome.Contains(termo))
-                 .Include(x => x.Loja)
                  .Include(x => x.Status)
-                 .Include(x => x.Familiares)
+                 .Include(x => x.Cargo)
                   .OrderBy(x => x.Id)
                  .ToPaginatedRestAsync(page.Value, 60);
-            }else if(loja == null && status ==null && (!string.IsNullOrEmpty(termo)  && termo != "undefined"))
+            }else if(status ==null && (!string.IsNullOrEmpty(termo)  && termo != "undefined"))
             {
-                usuario =  _dataContext.Usuario
+                usuario =  _dataContext.Usuario.AsNoTracking()
                    .Where(x =>  x.Nome.Contains(termo))
-                 .Include(x => x.Loja)
                  .Include(x => x.Status)
-                 .Include(x => x.Familiares)
+                 .Include(x => x.Cargo)
                   .OrderBy(x => x.Id)
                  .ToPaginatedRestAsync(page.Value, 60);
             }
             else
             {
-                usuario =  _dataContext.Usuario
-                 .Include(x => x.Loja)
+                usuario =  _dataContext.Usuario.AsNoTracking()
                  .Include(x => x.Status)
-                 .Include(x => x.Familiares)
+                 .Include(x => x.Cargo)
                   .OrderBy(x => x.Id)
                  .ToPaginatedRestAsync(page.Value, 60);
             }
@@ -159,7 +119,7 @@ namespace ApiLoja.Repositories
             }
             else
             {
-                return usuario.Result;
+                return await usuario;
             }
         }
         public UsuarioModels Login(LoginParams param)
@@ -173,9 +133,7 @@ namespace ApiLoja.Repositories
                 param.CPF = param.CPF.Replace(".", "").Replace("-", "");
                 var senha = GerarHashMd5(param.Pass);
                 param.Pass = senha;
-                var usuario = _dataContext.Usuario.Where(x => x.StatusId == 1 && x.CPF == param.CPF && x.Pass == param.Pass)
-                     .Include(x => x.Loja)
-                .Include(x => x.Status)
+                var usuario = _dataContext.Usuario.AsNoTracking().Where(x => x.StatusId == 1 && x.CPF == param.CPF && x.Pass == param.Pass)
                     .FirstOrDefault();
                 return usuario;
             }
@@ -183,9 +141,9 @@ namespace ApiLoja.Repositories
 
         public UsuarioModels VerficaAtivo(int id)
         {
-            var usuario = _dataContext.Usuario.Where(x => x.Id==id && x.StatusId==1)
-                .Include(x => x.Loja)
+            var usuario = _dataContext.Usuario.AsNoTracking().Where(x => x.Id==id && x.StatusId==1)
                 .Include(x => x.Status)
+                .Include(x => x.Cargo)
                 .FirstOrDefault();
             return usuario;
 
@@ -238,9 +196,9 @@ namespace ApiLoja.Repositories
         {
             var mesAtual = DateTime.Now.Month;
 
-            var lista = _dataContext.Usuario.Where(x => x.StatusId == 1 && x.Nascimento.Month == mesAtual)
-                                             .Include(x => x.Loja)
+            var lista = _dataContext.Usuario.AsNoTracking().Where(x => x.StatusId == 1 && x.Nascimento.Month == mesAtual)
                                              .Include(x => x.Status)
+                                             .Include(x => x.Cargo)
                                              .ToList();
 
 
@@ -248,13 +206,13 @@ namespace ApiLoja.Repositories
             return lista;
         }
 
-        public byte[] GerarCarteirinha(UsuarioModels macom,LojaModels loja)
+        public byte[] GerarCarteirinha(UsuarioModels macom)
         {
             var html = new StringBuilder();
             html.Append(" <div class='box-carteirinha'>     <div class='carteirinha--frente'>");
-            html.Append($"<img src='https://prebellisolucoes.com/FotosLojas/0.png' alt='' class='carteirinha--frente--glumb'>           <div lass='carteirinha--frente--head'>                                <div class='carteirinha--frente--head--cim'>                                    <h4 class='carteirinha--frente--head--cim--title'>CARTEIRA DE IDENTIDADE MAÇÔNICA</h4>                                    <h4 class='carteirinha--frente--head--cim--numero'>{macom.CIM.ToString().PadLeft(6,'0')}</h4></div><div class='carteirinha--frente--head--nome'><h4 class='carteirinha--frente--head--nome--title'>{ macom.Nome.ToString() }</h4><h4 class='carteirinha--frente--head--nome--grau'>{ConverteGrau(macom)}</h4></div></div>");
-            html.Append($" <img src='https://prebellisolucoes.com/FotosLojas/{loja.Id}.png' alt='' class='carteirinha--frente--loja'>");
-            html.Append($" <div class='carteirinha--frente--corpo'>                        <div class='carteirinha--frente--corpo--box'>                                   <div class='carteirinha--frente--corpo--box--infos'>                                   <h5 class='carteirinha--frente--corpo--box--infos--item'><strong>Oriente:</strong> {loja.Oriente}</h5><h5 class='carteirinha--frente--corpo--box--infos--item'><strong>Loja:</strong> { loja.NomeLoja }</h5><h5 class='carteirinha--frente--corpo--box--infos--item'><strong>Obediência:</strong> GLUMBSP</h5></div><img src='https://prebellisolucoes.com/FotosUsers/{macom.Id}.png' alt='' class='carteirinha--frente--corpo--box--foto'></div></div>");
+            html.Append($"<img src='https://portalcavaleirosdesalomao.claytonprebelli.com.br/assets/images/logos/salomao.png' alt='' class='carteirinha--frente--glumb'>           <div lass='carteirinha--frente--head'>                                <div class='carteirinha--frente--head--cim'>                                    <h4 class='carteirinha--frente--head--cim--title'>CARTEIRA DE IDENTIDADE MAÇÔNICA</h4>                                    <h4 class='carteirinha--frente--head--cim--numero'>{macom.CIM.ToString().PadLeft(6,'0')}</h4></div><div class='carteirinha--frente--head--nome'><h4 class='carteirinha--frente--head--nome--title'>{ macom.Nome.ToString() }</h4><h4 class='carteirinha--frente--head--nome--grau'>{ConverteGrau(macom)}</h4></div></div>");
+            html.Append($" <img src='https://portalcavaleirosdesalomao.claytonprebelli.com.br/assets/images/logos/salomao.png' alt='' class='carteirinha--frente--loja'>");
+            html.Append($" <div class='carteirinha--frente--corpo'>                        <div class='carteirinha--frente--corpo--box'>                                   <div class='carteirinha--frente--corpo--box--infos'>                                   <h5 class='carteirinha--frente--corpo--box--infos--item'><strong>Oriente:</strong> São Paulo</h5><h5 class='carteirinha--frente--corpo--box--infos--item'><strong>Loja:</strong> Cavaleiros de Salomão nº 7106</h5><h5 class='carteirinha--frente--corpo--box--infos--item'><strong>Obediência:</strong> GLUMBSP</h5></div><img src='https://prebellisolucoes.com/FotosUsers/{macom.Id}.png' alt='' class='carteirinha--frente--corpo--box--foto'></div></div>");
             html.Append($" <div class='carteirinha--frente--footer'>                        <div class='carteirinha--frente--footer--inner'>                              <div class='carteirinha--frente--footer--inner--item'>                                <h5 class='carteirinha--frente--footer--inner--item--text'><strong>Emissão</strong></h5>                          <h5 class='carteirinha--frente--footer--inner--item--text'><strong>{MesEAno( DateTime.Now)}</strong></h5></div><div class='carteirinha--frente--footer--inner--item'><h5 class='carteirinha--frente--footer--inner--item--text'><strong>Validade</strong></h5><h5 class='carteirinha--frente--footer--inner--item--text'><strong>{ MesEAno(DateTime.Now.AddYears(1)) }</strong></h5></div></div></div></div>");
             html.Append("<div class='carteirinha--tras'>           <h3 class='carteirinha--tras--title'>GRANDE LOJA UNIDA MAÇÔNICA DO BRASIL-SP</h3>                            <h4 class='carteirinha--tras--text'>Esta carteira de identidade maçônica constitui documento oficial da Grande Loja Unida Maçônica do Brasil-SP, certificando regularidade de obreiro.</h4>");
             html.Append($"<div class='carteirinha--tras--graus'>                                <div class='carteirinha--tras--graus--item'>                                    <h4 class='carteirinha--tras--graus--item--text'>Iniciação</h4>                                    <h4 class='carteirinha--tras--graus--item--text'>{ FormataData(macom.Iniciacao.ToString())}</h4></div>");

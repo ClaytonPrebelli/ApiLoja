@@ -12,7 +12,6 @@ namespace ApiLoja.Models
         public byte[] DocFile { get; set; }
         public int? UsuarioId { get; set; }
         public int? CandidatoId { get; set; }
-        public int? LojaId { get; set; }
         public int? GrauId { get; set; }
     }
 }

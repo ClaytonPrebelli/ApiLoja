@@ -161,6 +161,125 @@ namespace ApiLoja.Migrations
                     b.ToTable("Candidatos");
                 });
 
+            modelBuilder.Entity("ApiLoja.Models.CargosModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cargos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nome = "Venerável Mestre"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nome = "Tesoureiro"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nome = "Secretário"
+                        });
+                });
+
+            modelBuilder.Entity("ApiLoja.Models.CategoriaFinanceiroModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CategoriasFinanceiro");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nome = "Mensalidade",
+                            Tipo = "Entrada"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nome = "Mútua",
+                            Tipo = "Entrada"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nome = "Joia",
+                            Tipo = "Entrada"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nome = "Medalha",
+                            Tipo = "Entrada"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nome = "Aluguel",
+                            Tipo = "Saida"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nome = "Capitação GOSP",
+                            Tipo = "Saida"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Nome = "Mútua",
+                            Tipo = "Saida"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Nome = "Insumos",
+                            Tipo = "Saida"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Nome = "Ágape",
+                            Tipo = "Saida"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Nome = "Medalha",
+                            Tipo = "Saida"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Nome = "Placets",
+                            Tipo = "Saida"
+                        });
+                });
+
             modelBuilder.Entity("ApiLoja.Models.CategoriasCobrancasModels", b =>
                 {
                     b.Property<int>("Id")
@@ -173,7 +292,39 @@ namespace ApiLoja.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoriasCobrancasModels");
+                    b.ToTable("CategoriasCobrancas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoriaNome = "Mensalidade"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoriaNome = "Mútua"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoriaNome = "Joia"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoriaNome = "Medalha"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoriaNome = "Placets"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoriaNome = "Outros"
+                        });
                 });
 
             modelBuilder.Entity("ApiLoja.Models.CobrancasModels", b =>
@@ -217,7 +368,7 @@ namespace ApiLoja.Migrations
 
                     b.HasIndex("UsuarioModelsId");
 
-                    b.ToTable("CobrancasModels");
+                    b.ToTable("Cobrancas");
                 });
 
             modelBuilder.Entity("ApiLoja.Models.DocumentosModels", b =>
@@ -243,12 +394,6 @@ namespace ApiLoja.Migrations
                     b.Property<int?>("GrauId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("LojaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("LojaModelsId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("UsuarioId")
                         .HasColumnType("int");
 
@@ -258,8 +403,6 @@ namespace ApiLoja.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CandidatosModelsId");
-
-                    b.HasIndex("LojaModelsId");
 
                     b.HasIndex("UsuarioModelsId");
 
@@ -302,6 +445,44 @@ namespace ApiLoja.Migrations
                     b.HasIndex("UsuarioModelsId");
 
                     b.ToTable("Familiares");
+                });
+
+            modelBuilder.Entity("ApiLoja.Models.FinanceiroModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoriaFinanceiroId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Observacao")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("UsuarioModelsId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriaFinanceiroId");
+
+                    b.HasIndex("UsuarioModelsId");
+
+                    b.ToTable("Financeiro");
                 });
 
             modelBuilder.Entity("ApiLoja.Models.FotosCandidatoModels", b =>
@@ -353,6 +534,28 @@ namespace ApiLoja.Migrations
                     b.ToTable("FotosNoticias");
                 });
 
+            modelBuilder.Entity("ApiLoja.Models.FrequenciaModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DataReuniao")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("Presente")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("UsuarioModelsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioModelsId");
+
+                    b.ToTable("Frequencia");
+                });
+
             modelBuilder.Entity("ApiLoja.Models.LivrosModels", b =>
                 {
                     b.Property<int>("Id")
@@ -379,52 +582,6 @@ namespace ApiLoja.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Livros");
-                });
-
-            modelBuilder.Entity("ApiLoja.Models.LojaModels", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Ativa")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<DateTime>("DataFundacao")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Endereco")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Instagram")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("NomeLoja")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("NumeroLoja")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Oriente")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Rito")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("Veneravel")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Lojas");
                 });
 
             modelBuilder.Entity("ApiLoja.Models.NoticiasModels", b =>
@@ -511,8 +668,8 @@ namespace ApiLoja.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Cargo")
-                        .HasColumnType("longtext");
+                    b.Property<int?>("CargoId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Cidade")
                         .IsRequired()
@@ -523,6 +680,9 @@ namespace ApiLoja.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<DateTime?>("DataAfiliacao")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DataInstalacao")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("Elevacao")
@@ -561,9 +721,6 @@ namespace ApiLoja.Migrations
 
                     b.Property<DateTime?>("Iniciacao")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<int>("LojaId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Mae")
                         .IsRequired()
@@ -613,9 +770,6 @@ namespace ApiLoja.Migrations
                     b.Property<string>("TipoSanguineo")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Titulo")
-                        .HasColumnType("longtext");
-
                     b.Property<bool>("isAdmin")
                         .HasColumnType("tinyint(1)");
 
@@ -631,12 +785,15 @@ namespace ApiLoja.Migrations
                     b.Property<bool>("isMestre")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<bool>("isMestreInstalado")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<bool>("isSuperAdmin")
                         .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LojaId");
+                    b.HasIndex("CargoId");
 
                     b.HasIndex("StatusId");
 
@@ -662,11 +819,13 @@ namespace ApiLoja.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ApiLoja.Models.UsuarioModels", null)
+                    b.HasOne("ApiLoja.Models.UsuarioModels", "Usuario")
                         .WithMany("Cobrancas")
                         .HasForeignKey("UsuarioModelsId");
 
                     b.Navigation("CategoriasCobrancas");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("ApiLoja.Models.DocumentosModels", b =>
@@ -674,10 +833,6 @@ namespace ApiLoja.Migrations
                     b.HasOne("ApiLoja.Models.CandidatosModels", null)
                         .WithMany("Documentos")
                         .HasForeignKey("CandidatosModelsId");
-
-                    b.HasOne("ApiLoja.Models.LojaModels", null)
-                        .WithMany("Documentos")
-                        .HasForeignKey("LojaModelsId");
 
                     b.HasOne("ApiLoja.Models.UsuarioModels", null)
                         .WithMany("Documentos")
@@ -695,11 +850,39 @@ namespace ApiLoja.Migrations
                         .HasForeignKey("UsuarioModelsId");
                 });
 
+            modelBuilder.Entity("ApiLoja.Models.FinanceiroModels", b =>
+                {
+                    b.HasOne("ApiLoja.Models.CategoriaFinanceiroModels", "CategoriaFinanceiro")
+                        .WithMany()
+                        .HasForeignKey("CategoriaFinanceiroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ApiLoja.Models.UsuarioModels", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioModelsId");
+
+                    b.Navigation("CategoriaFinanceiro");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("ApiLoja.Models.FotosNoticiaModels", b =>
                 {
                     b.HasOne("ApiLoja.Models.NoticiasModels", null)
                         .WithMany("FotosNoticias")
                         .HasForeignKey("NoticiasModelsId");
+                });
+
+            modelBuilder.Entity("ApiLoja.Models.FrequenciaModels", b =>
+                {
+                    b.HasOne("ApiLoja.Models.UsuarioModels", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioModelsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("ApiLoja.Models.NoticiasModels", b =>
@@ -715,11 +898,9 @@ namespace ApiLoja.Migrations
 
             modelBuilder.Entity("ApiLoja.Models.UsuarioModels", b =>
                 {
-                    b.HasOne("ApiLoja.Models.LojaModels", "Loja")
+                    b.HasOne("ApiLoja.Models.CargosModels", "Cargo")
                         .WithMany()
-                        .HasForeignKey("LojaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CargoId");
 
                     b.HasOne("ApiLoja.Models.StatusModels", "Status")
                         .WithMany()
@@ -727,7 +908,7 @@ namespace ApiLoja.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Loja");
+                    b.Navigation("Cargo");
 
                     b.Navigation("Status");
                 });
@@ -737,11 +918,6 @@ namespace ApiLoja.Migrations
                     b.Navigation("Documentos");
 
                     b.Navigation("Familiares");
-                });
-
-            modelBuilder.Entity("ApiLoja.Models.LojaModels", b =>
-                {
-                    b.Navigation("Documentos");
                 });
 
             modelBuilder.Entity("ApiLoja.Models.NoticiasModels", b =>

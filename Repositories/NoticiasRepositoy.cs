@@ -2,7 +2,7 @@
 using ApiLoja.Models;
 using ApiLoja.Repositories.IRepositories;
 using ApiLoja.Responses;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiLoja.Repositories
 {
@@ -33,20 +33,14 @@ namespace ApiLoja.Repositories
             }
             var registros = _dataContext.Noticias.Count();
             var noticias = _dataContext.Noticias
-                .AsQueryable()
+                .AsNoTracking()
+                .Include(x => x.Autor)
+                .Include(x => x.FotosNoticias)
                 .OrderByDescending(x => x.DataPublicacao)
                 .Skip((page-1)==0?0:(page-1)*pageSize)
                 .Take(pageSize)
                 .ToList();
-              
-                
-            foreach(var noticia in noticias)
-            {
-                var fotos = _fotosRepository.VerFotoNoticia(noticia.Id).ToList();
-                var autor = _usuariosRepository.VerUsuario(noticia.AutorId);
-                noticia.FotosNoticias = fotos;
-                noticia.Autor = autor;
-            }
+
             var result = new NoticiasResponse();
             result.TotalPaginas =(registros/pageSize)+1;
             result.Page = page;
@@ -58,6 +52,7 @@ namespace ApiLoja.Repositories
         public NoticiasModels VerNoticia(int id)
         {
             var noticia = _dataContext.Noticias
+                .AsNoTracking()
                 .Include(x=>x.FotosNoticias)
                 .Include(x=>x.Autor)
                 .FirstOrDefault(x => x.Id == id)
@@ -68,10 +63,6 @@ namespace ApiLoja.Repositories
             }
             else
             {
-                var fotos = _fotosRepository.VerFotoNoticia(noticia.Id).ToList();
-                var autor = _usuariosRepository.VerUsuario(noticia.AutorId);
-                noticia.FotosNoticias = fotos;
-                noticia.Autor = autor;
                 return noticia;
             }
         }

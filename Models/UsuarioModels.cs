@@ -29,6 +29,8 @@ namespace ApiLoja.Models
         public DateTime? Iniciacao { get; set; }
         public DateTime? Elevacao { get; set; }
         public DateTime? Exaltacao { get; set; }
+        public bool isMestreInstalado { get; set; }
+        public DateTime? DataInstalacao { get; set; }
         public string Observacoes { get; set; }
         public string ContatoEmergencia { get; set; }
         public string FoneEmergencia { get; set; }
@@ -41,12 +43,10 @@ namespace ApiLoja.Models
         public string Pass { get; set; }
         public DateTime? DataAfiliacao { get; set; }
         public string FormaAfiliacao { get; set; }
-        public string? Cargo { get; set; }
-        public string? Titulo { get; set; }
+        public int? CargoId { get; set; }
         public int StatusId { get; set; }
-        public int LojaId { get; set; }
+        public virtual CargosModels? Cargo { get; set; }
         public virtual StatusModels Status { get; set; }
-        public virtual LojaModels Loja { get; set; }
         public virtual ICollection<FamiliaresModels> Familiares { get; set; }
         public virtual ICollection<DocumentosModels> Documentos { get; set; }
         public virtual ICollection<CobrancasModels> Cobrancas { get; set;}
