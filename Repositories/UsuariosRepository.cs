@@ -58,6 +58,8 @@ namespace ApiLoja.Repositories
                 .Include(x => x.Status)
                 .Include(x => x.Cargo)
                 .Include(x => x.Familiares)
+                .Include(x => x.Cobrancas)
+                    .ThenInclude(c => c.CategoriasCobrancas)
                 .FirstOrDefault(x => x.Id == id);
             if (usuario == null)
             {

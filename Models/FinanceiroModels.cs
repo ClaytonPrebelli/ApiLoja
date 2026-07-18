@@ -11,6 +11,8 @@ namespace ApiLoja.Models
         public string Descricao { get; set; }
         public double Valor { get; set; }
         public DateTime Data { get; set; }
+        public bool Pago { get; set; }
+        public DateTime? DataPagamento { get; set; }
         public int? UsuarioModelsId { get; set; }
         public string? Observacao { get; set; }
         public virtual UsuarioModels? Usuario { get; set; }

@@ -69,9 +69,9 @@ namespace ApiLoja.Controllers
         }
 
         [HttpGet("ListarTodos")]
-        public ActionResult<List<FinanceiroModels>> ListarTodos([FromQuery] int? mes, [FromQuery] int? ano, [FromQuery] string? tipo)
+        public ActionResult<List<FinanceiroModels>> ListarTodos([FromQuery] int? mes, [FromQuery] int? ano, [FromQuery] string? tipo, [FromQuery] bool? pago)
         {
-            var lista = _financeiroRepository.ListarTodos(mes, ano, tipo);
+            var lista = _financeiroRepository.ListarTodos(mes, ano, tipo, pago);
             return Ok(lista);
         }
 
@@ -94,6 +94,14 @@ namespace ApiLoja.Controllers
         {
             var lista = _financeiroRepository.ListarPorMembro(usuarioId);
             return Ok(lista);
+        }
+
+        [HttpPut("MarcarComoPago")]
+        public ActionResult MarcarComoPago([FromQuery] int id, [FromQuery] DateTime dataPagamento)
+        {
+            var resultado = _financeiroRepository.MarcarComoPago(id, dataPagamento);
+            if (!resultado) return NotFound();
+            return Ok(new { message = "Lançamento marcado como pago." });
         }
     }
 }

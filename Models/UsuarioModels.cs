@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ApiLoja.Models
 {
@@ -49,6 +50,7 @@ namespace ApiLoja.Models
         public virtual StatusModels Status { get; set; }
         public virtual ICollection<FamiliaresModels> Familiares { get; set; }
         public virtual ICollection<DocumentosModels> Documentos { get; set; }
+        [JsonIgnore]
         public virtual ICollection<CobrancasModels> Cobrancas { get; set;}
     }
 }

@@ -33,13 +33,16 @@ namespace ApiLoja.Data
                 new CategoriaFinanceiroModels { Id = 2, Nome = "Mútua", Tipo = "Entrada" },
                 new CategoriaFinanceiroModels { Id = 3, Nome = "Joia", Tipo = "Entrada" },
                 new CategoriaFinanceiroModels { Id = 4, Nome = "Medalha", Tipo = "Entrada" },
-                new CategoriaFinanceiroModels { Id = 5, Nome = "Aluguel", Tipo = "Saida" },
-                new CategoriaFinanceiroModels { Id = 6, Nome = "Capitação GOSP", Tipo = "Saida" },
-                new CategoriaFinanceiroModels { Id = 7, Nome = "Mútua", Tipo = "Saida" },
-                new CategoriaFinanceiroModels { Id = 8, Nome = "Insumos", Tipo = "Saida" },
-                new CategoriaFinanceiroModels { Id = 9, Nome = "Ágape", Tipo = "Saida" },
-                new CategoriaFinanceiroModels { Id = 10, Nome = "Medalha", Tipo = "Saida" },
-                new CategoriaFinanceiroModels { Id = 11, Nome = "Placets", Tipo = "Saida" }
+                new CategoriaFinanceiroModels { Id = 5, Nome = "Arrecadação", Tipo = "Entrada" },
+                new CategoriaFinanceiroModels { Id = 6, Nome = "Saldo Remanescente", Tipo = "Entrada" },
+                new CategoriaFinanceiroModels { Id = 7, Nome = "Bolsa Beneficência", Tipo = "Entrada" },
+                new CategoriaFinanceiroModels { Id = 10, Nome = "Aluguel", Tipo = "Saida" },
+                new CategoriaFinanceiroModels { Id = 11, Nome = "Capitação GOSP", Tipo = "Saida" },
+                new CategoriaFinanceiroModels { Id = 12, Nome = "Mútua", Tipo = "Saida" },
+                new CategoriaFinanceiroModels { Id = 13, Nome = "Insumos", Tipo = "Saida" },
+                new CategoriaFinanceiroModels { Id = 14, Nome = "Ágape", Tipo = "Saida" },
+                new CategoriaFinanceiroModels { Id = 15, Nome = "Medalha", Tipo = "Saida" },
+                new CategoriaFinanceiroModels { Id = 16, Nome = "Placets", Tipo = "Saida" }
             );
         }
 
@@ -62,6 +65,7 @@ namespace ApiLoja.Data
         public DbSet<CategoriaFinanceiroModels> CategoriasFinanceiro { get; set; }
         public DbSet<ComunicadosModels> Comunicados { get; set; }
         public DbSet<ComunicadosFotoModels> ComunicadosFotos { get; set; }
+        public DbSet<SaldoModels> Saldo { get; set; }
 
     }
 }

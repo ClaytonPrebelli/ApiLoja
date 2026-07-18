@@ -3,6 +3,7 @@ using System;
 using ApiLoja.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiLoja.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20260717201448_AddMesReferenciaStatusCobrancas")]
+    partial class AddMesReferenciaStatusCobrancas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,60 +241,42 @@ namespace ApiLoja.Migrations
                         new
                         {
                             Id = 5,
-                            Nome = "Arrecadação",
-                            Tipo = "Entrada"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Nome = "Saldo Remanescente",
-                            Tipo = "Entrada"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Nome = "Bolsa Beneficência",
-                            Tipo = "Entrada"
-                        },
-                        new
-                        {
-                            Id = 10,
                             Nome = "Aluguel",
                             Tipo = "Saida"
                         },
                         new
                         {
-                            Id = 11,
+                            Id = 6,
                             Nome = "Capitação GOSP",
                             Tipo = "Saida"
                         },
                         new
                         {
-                            Id = 12,
+                            Id = 7,
                             Nome = "Mútua",
                             Tipo = "Saida"
                         },
                         new
                         {
-                            Id = 13,
+                            Id = 8,
                             Nome = "Insumos",
                             Tipo = "Saida"
                         },
                         new
                         {
-                            Id = 14,
+                            Id = 9,
                             Nome = "Ágape",
                             Tipo = "Saida"
                         },
                         new
                         {
-                            Id = 15,
+                            Id = 10,
                             Nome = "Medalha",
                             Tipo = "Saida"
                         },
                         new
                         {
-                            Id = 16,
+                            Id = 11,
                             Nome = "Placets",
                             Tipo = "Saida"
                         });
@@ -354,6 +338,9 @@ namespace ApiLoja.Migrations
                     b.Property<int>("CategoriaCobrancaId")
                         .HasColumnType("int");
 
+                    b.Property<int>("CategoriasCobrancasId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("DataPagamento")
                         .HasColumnType("datetime(6)");
 
@@ -385,7 +372,7 @@ namespace ApiLoja.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaCobrancaId");
+                    b.HasIndex("CategoriasCobrancasId");
 
                     b.HasIndex("UsuarioModelsId");
 
@@ -535,18 +522,12 @@ namespace ApiLoja.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime?>("DataPagamento")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Observacao")
                         .HasColumnType("longtext");
-
-                    b.Property<bool>("Pago")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Tipo")
                         .IsRequired()
@@ -691,29 +672,6 @@ namespace ApiLoja.Migrations
                     b.HasIndex("AutorId");
 
                     b.ToTable("Noticias");
-                });
-
-            modelBuilder.Entity("ApiLoja.Models.SaldoModels", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Ano")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DataAtualizacao")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("Mes")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Valor")
-                        .HasColumnType("double");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Saldo");
                 });
 
             modelBuilder.Entity("ApiLoja.Models.StatusModels", b =>
@@ -920,7 +878,7 @@ namespace ApiLoja.Migrations
                 {
                     b.HasOne("ApiLoja.Models.CategoriasCobrancasModels", "CategoriasCobrancas")
                         .WithMany()
-                        .HasForeignKey("CategoriaCobrancaId")
+                        .HasForeignKey("CategoriasCobrancasId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
