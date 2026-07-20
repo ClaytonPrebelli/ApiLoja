@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\actdigital\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj": {}
+    "C:\\Users\\Clayton Prebelli\\Projetos\\ApiLoja\\ApiLoja.csproj": {}
   },
   "projects": {
-    "C:\\Users\\actdigital\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj": {
+    "C:\\Users\\Clayton Prebelli\\Projetos\\ApiLoja\\ApiLoja.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\actdigital\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj",
+        "projectUniqueName": "C:\\Users\\Clayton Prebelli\\Projetos\\ApiLoja\\ApiLoja.csproj",
         "projectName": "ApiLoja",
-        "projectPath": "C:\\Users\\actdigital\\Documents\\projetosEstudo\\APiGlumb\\ApiLoja.csproj",
-        "packagesPath": "C:\\Users\\actdigital\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\actdigital\\Documents\\projetosEstudo\\APiGlumb\\obj\\publish\\win-x86\\",
+        "projectPath": "C:\\Users\\Clayton Prebelli\\Projetos\\ApiLoja\\ApiLoja.csproj",
+        "packagesPath": "C:\\Users\\Clayton Prebelli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Clayton Prebelli\\Projetos\\ApiLoja\\obj\\publish\\win-x86\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\actdigital\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Clayton Prebelli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,11 +26,11 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
+            "framework": "net6.0",
             "targetAlias": "net6.0",
             "projectReferences": {}
           }
@@ -45,10 +44,12 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net6.0": {
+          "framework": "net6.0",
           "targetAlias": "net6.0",
           "dependencies": {
             "Canducci.Pagination": {
@@ -109,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

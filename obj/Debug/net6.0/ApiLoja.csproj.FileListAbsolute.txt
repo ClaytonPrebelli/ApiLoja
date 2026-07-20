@@ -197,4 +197,3 @@ C:\Users\Clayton Prebelli\Projetos\ApiLoja\obj\Debug\net6.0\ApiLoja.pdb
 C:\Users\Clayton Prebelli\Projetos\ApiLoja\obj\Debug\net6.0\ApiLoja.genruntimeconfig.cache
 C:\Users\Clayton Prebelli\Projetos\ApiLoja\obj\Debug\net6.0\ref\ApiLoja.dll
 C:\Users\Clayton Prebelli\Projetos\ApiLoja\bin\Debug\net6.0\appsettings.example.json
-C:\Users\Clayton Prebelli\Projetos\ApiLoja\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
