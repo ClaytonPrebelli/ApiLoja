@@ -45,7 +45,7 @@ namespace ApiLoja.Controllers
         }
 
         [HttpGet("VerificarPresenca")]
-        public ActionResult<FrequenciaModels> VerificarPresenca([FromQuery] int usuarioId, [FromQuery] DateTime dataReuniao)
+        public ActionResult VerificarPresenca([FromQuery] int usuarioId, [FromQuery] DateTime dataReuniao)
         {
             var registro = _frequenciaRepository.VerificarPresenca(usuarioId, dataReuniao);
             if (registro == null)
@@ -67,6 +67,28 @@ namespace ApiLoja.Controllers
         {
             var lista = _frequenciaRepository.ListarTodas(mes, ano);
             return Ok(lista);
+        }
+
+        [HttpDelete("DeletarPresenca")]
+        public ActionResult DeletarPresenca([FromQuery] int id)
+        {
+            var deletado = _frequenciaRepository.DeletarPresenca(id);
+            if (!deletado) return NotFound();
+            return Ok(new { message = "Registro removido com sucesso." });
+        }
+
+        [HttpPost("SalvarLista")]
+        public ActionResult<List<FrequenciaModels>> SalvarLista([FromBody] List<FrequenciaModels> lista)
+        {
+            var result = _frequenciaRepository.SalvarLista(lista);
+            return Ok(result);
+        }
+
+        [HttpGet("ListarDatasReuniao")]
+        public ActionResult<List<DateTime>> ListarDatasReuniao([FromQuery] int mes, [FromQuery] int ano)
+        {
+            var datas = _frequenciaRepository.ListarDatasReuniao(mes, ano);
+            return Ok(datas);
         }
     }
 }

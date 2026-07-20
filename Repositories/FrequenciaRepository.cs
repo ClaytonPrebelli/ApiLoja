@@ -34,6 +34,7 @@ namespace ApiLoja.Repositories
         {
             return _dataContext.Frequencia.AsNoTracking()
                 .Where(x => x.UsuarioModelsId == usuarioId)
+                .Include(x => x.Usuario)
                 .OrderByDescending(x => x.DataReuniao)
                 .ToList();
         }
@@ -85,9 +86,55 @@ namespace ApiLoja.Repositories
                 .ToList();
         }
 
-        public void SalvarAlteracoes()
+        public bool DeletarPresenca(int id)
         {
+            var registro = _dataContext.Frequencia.Find(id);
+            if (registro == null) return false;
+
+            _dataContext.Frequencia.Remove(registro);
             _dataContext.SaveChanges();
+            return true;
+        }
+
+        public List<FrequenciaModels> SalvarLista(List<FrequenciaModels> lista)
+        {
+            foreach (var item in lista)
+            {
+                var existente = _dataContext.Frequencia
+                    .FirstOrDefault(x => x.UsuarioModelsId == item.UsuarioModelsId
+                                     && x.DataReuniao.Date == item.DataReuniao.Date);
+
+                if (existente != null)
+                {
+                    existente.Presente = item.Presente;
+                }
+                else
+                {
+                    _dataContext.Frequencia.Add(item);
+                }
+            }
+
+            _dataContext.SaveChanges();
+            return lista;
+        }
+
+        public List<DateTime> ListarDatasReuniao(int mes, int ano)
+        {
+            var datas = new List<DateTime>();
+            var primeiroDia = new DateTime(ano, mes, 1);
+            var ultimoDia = primeiroDia.AddMonths(1).AddDays(-1);
+
+            var current = primeiroDia;
+            while (current <= ultimoDia)
+            {
+                if (current.DayOfWeek == DayOfWeek.Thursday)
+                {
+                    datas.Add(current);
+                }
+                current = current.AddDays(1);
+            }
+
+            return datas;
         }
     }
 }

@@ -10,6 +10,8 @@ namespace ApiLoja.Repositories.IRepositories
         FrequenciaModels VerificarPresenca(int usuarioId, DateTime dataReuniao);
         bool TogglePresenca(int usuarioId, DateTime dataReuniao);
         List<FrequenciaModels> ListarTodas(int? mes, int? ano);
-        void SalvarAlteracoes();
+        bool DeletarPresenca(int id);
+        List<FrequenciaModels> SalvarLista(List<FrequenciaModels> lista);
+        List<DateTime> ListarDatasReuniao(int mes, int ano);
     }
 }
