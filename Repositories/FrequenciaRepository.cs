@@ -1,6 +1,7 @@
 using ApiLoja.Data;
 using ApiLoja.Models;
 using ApiLoja.Repositories.IRepositories;
+using ApiLoja.Responses;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiLoja.Repositories
@@ -107,6 +108,8 @@ namespace ApiLoja.Repositories
                 if (existente != null)
                 {
                     existente.Presente = item.Presente;
+                    existente.Observacao = item.Observacao;
+                    existente.TipoSessao = item.TipoSessao;
                 }
                 else
                 {
@@ -124,17 +127,63 @@ namespace ApiLoja.Repositories
             var primeiroDia = new DateTime(ano, mes, 1);
             var ultimoDia = primeiroDia.AddMonths(1).AddDays(-1);
 
+            var thursdays = new List<DateTime>();
             var current = primeiroDia;
             while (current <= ultimoDia)
             {
                 if (current.DayOfWeek == DayOfWeek.Thursday)
-                {
-                    datas.Add(current);
-                }
+                    thursdays.Add(current);
                 current = current.AddDays(1);
             }
 
-            return datas;
+            if (thursdays.Count >= 2) datas.Add(thursdays[1]);
+            if (thursdays.Count >= 4) datas.Add(thursdays[3]);
+
+            var datasComRegistros = _dataContext.Frequencia
+                .Where(x => x.DataReuniao.Month == mes && x.DataReuniao.Year == ano)
+                .Select(x => x.DataReuniao.Date)
+                .Distinct()
+                .ToList();
+
+            foreach (var d in datasComRegistros)
+            {
+                if (!datas.Any(x => x.Date == d))
+                    datas.Add(d);
+            }
+
+            return datas.OrderBy(x => x).ToList();
+        }
+
+        public List<FrequenciaHistoricoResponse> ListarHistorico(DateTime dataInicio, DateTime dataFim)
+        {
+            var todosRegistros = _dataContext.Frequencia.AsNoTracking()
+                .Where(x => x.DataReuniao.Date >= dataInicio.Date && x.DataReuniao.Date <= dataFim.Date)
+                .Include(x => x.Usuario)
+                .ToList();
+
+            var datasReuniao = todosRegistros
+                .Select(x => x.DataReuniao.Date)
+                .Distinct()
+                .Count();
+
+            if (datasReuniao == 0)
+                return new List<FrequenciaHistoricoResponse>();
+
+            var agrupado = todosRegistros
+                .GroupBy(x => x.UsuarioModelsId)
+                .Select(g => new FrequenciaHistoricoResponse
+                {
+                    UsuarioId = g.Key,
+                    Nome = g.First().Usuario?.Nome ?? string.Empty,
+                    Cargo = g.First().Usuario?.Cargo?.Nome,
+                    TotalReunioes = datasReuniao,
+                    Presencas = g.Count(x => x.Presente),
+                    Percentual = Math.Round((double)g.Count(x => x.Presente) / datasReuniao * 100, 1)
+                })
+                .OrderBy(x => x.Nome)
+                .ToList();
+
+            return agrupado;
         }
     }
 }

@@ -1,4 +1,5 @@
 using ApiLoja.Models;
+using ApiLoja.Responses;
 
 namespace ApiLoja.Repositories.IRepositories
 {
@@ -13,5 +14,6 @@ namespace ApiLoja.Repositories.IRepositories
         bool DeletarPresenca(int id);
         List<FrequenciaModels> SalvarLista(List<FrequenciaModels> lista);
         List<DateTime> ListarDatasReuniao(int mes, int ano);
+        List<FrequenciaHistoricoResponse> ListarHistorico(DateTime dataInicio, DateTime dataFim);
     }
 }

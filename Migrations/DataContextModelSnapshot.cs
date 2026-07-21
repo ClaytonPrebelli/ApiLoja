@@ -625,8 +625,14 @@ namespace ApiLoja.Migrations
                     b.Property<DateTime>("DataReuniao")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("Observacao")
+                        .HasColumnType("longtext");
+
                     b.Property<bool>("Presente")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("TipoSessao")
+                        .HasColumnType("longtext");
 
                     b.Property<int>("UsuarioModelsId")
                         .HasColumnType("int");

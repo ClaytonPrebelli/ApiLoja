@@ -1,5 +1,6 @@
 using ApiLoja.Models;
 using ApiLoja.Repositories.IRepositories;
+using ApiLoja.Responses;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -89,6 +90,13 @@ namespace ApiLoja.Controllers
         {
             var datas = _frequenciaRepository.ListarDatasReuniao(mes, ano);
             return Ok(datas);
+        }
+
+        [HttpGet("ListarHistorico")]
+        public ActionResult<List<FrequenciaHistoricoResponse>> ListarHistorico([FromQuery] DateTime dataInicio, [FromQuery] DateTime dataFim)
+        {
+            var historico = _frequenciaRepository.ListarHistorico(dataInicio, dataFim);
+            return Ok(historico);
         }
     }
 }
