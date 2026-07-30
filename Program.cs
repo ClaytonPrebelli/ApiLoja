@@ -35,14 +35,14 @@ builder.Services.AddScoped<IComunicadosRepository, ComunicadosRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseCors("Politica");
 app.UseRouting();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseCors("Politica");
+app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
-app.UseAuthorization();
 app.Run();

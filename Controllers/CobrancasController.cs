@@ -62,9 +62,11 @@ namespace ApiLoja.Controllers
         }
 
         [HttpPut("MarcarComoPaga")]
-        public ActionResult MarcarComoPaga([FromQuery] int id, [FromQuery] DateTime dataPagamento)
+        public ActionResult MarcarComoPaga([FromQuery] int id, [FromQuery] string dataPagamento)
         {
-            var resultado = _cobrancasRepository.MarcarComoPaga(id, dataPagamento);
+            if (!DateTime.TryParse(dataPagamento, out var data))
+                return BadRequest(new { message = "Data de pagamento inválida." });
+            var resultado = _cobrancasRepository.MarcarComoPaga(id, data);
             if (!resultado) return NotFound();
             return Ok(new { message = "Cobrança marcada como paga." });
         }
