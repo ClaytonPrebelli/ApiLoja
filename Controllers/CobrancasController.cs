@@ -61,7 +61,7 @@ namespace ApiLoja.Controllers
             return Ok(lista);
         }
 
-        [HttpPut("MarcarComoPaga")]
+        [HttpPost("MarcarComoPaga")]
         public ActionResult MarcarComoPaga([FromQuery] int id, [FromQuery] string dataPagamento)
         {
             if (!DateTime.TryParse(dataPagamento, out var data))

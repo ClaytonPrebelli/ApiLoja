@@ -35,11 +35,32 @@ builder.Services.AddScoped<IComunicadosRepository, ComunicadosRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.UseCors("Politica");
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.Headers.Add("Access-Control-Allow-Origin", context.Request.Headers["Origin"]);
+        context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept");
+        context.Response.StatusCode = 200;
+        return;
+    }
+    try
+    {
+        await next();
+    }
+    catch (Exception ex)
+    {
+        context.Response.StatusCode = 500;
+        context.Response.Headers.Add("Access-Control-Allow-Origin", context.Request.Headers["Origin"]);
+        await context.Response.WriteAsync($"Erro: {ex.GetType().Name} - {ex.Message}\n{ex.StackTrace}");
+    }
+});
 app.UseRouting();
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseCors("Politica");
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
