@@ -39,7 +39,7 @@ namespace ApiLoja.Controllers
             return Ok(lancamento);
         }
 
-        [HttpPut("AtualizarLancamento")]
+        [HttpPost("AtualizarLancamento")]
         public ActionResult<FinanceiroModels> AtualizarLancamento([FromBody] FinanceiroModels financeiro)
         {
             var result = _financeiroRepository.AtualizarLancamento(financeiro);
@@ -96,10 +96,12 @@ namespace ApiLoja.Controllers
             return Ok(lista);
         }
 
-        [HttpPut("MarcarComoPago")]
-        public ActionResult MarcarComoPago([FromQuery] int id, [FromQuery] DateTime dataPagamento)
+        [HttpPost("MarcarComoPago")]
+        public ActionResult MarcarComoPago([FromQuery] int id, [FromQuery] string dataPagamento)
         {
-            var resultado = _financeiroRepository.MarcarComoPago(id, dataPagamento);
+            if (!DateTime.TryParse(dataPagamento, out var data))
+                return BadRequest(new { message = "Data de pagamento inválida." });
+            var resultado = _financeiroRepository.MarcarComoPago(id, data);
             if (!resultado) return NotFound();
             return Ok(new { message = "Lançamento marcado como pago." });
         }
